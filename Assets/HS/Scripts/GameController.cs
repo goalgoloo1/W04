@@ -14,7 +14,7 @@ public class GameController : MonoBehaviour
         Cam6,
         Cam7,
         Cam8,
-        Cam9
+
     }
 
     [SerializeField] private CinemachineCamera[] cameras;
@@ -38,20 +38,18 @@ public class GameController : MonoBehaviour
         if (Physics.Raycast(ray, out hit) && Input.GetKeyDown(KeyCode.Mouse0))
         {
             Debug.Log(hit.collider.name);
-        }
-        // Simple camera switching with number keys (1-9 for stages, 0 for office)
-        if (Input.GetKeyDown(KeyCode.Alpha0)) SwitchToCamera(CameraMonitor.Office);
-        if (Input.GetKeyDown(KeyCode.Alpha1)) SwitchToCamera(CameraMonitor.Cam1);
-        if (Input.GetKeyDown(KeyCode.Alpha2)) SwitchToCamera(CameraMonitor.Cam2);
-        if (Input.GetKeyDown(KeyCode.Alpha3)) SwitchToCamera(CameraMonitor.Cam3);
-        if (Input.GetKeyDown(KeyCode.Alpha4)) SwitchToCamera(CameraMonitor.Cam4);
-        if (Input.GetKeyDown(KeyCode.Alpha5)) SwitchToCamera(CameraMonitor.Cam5);
-        if (Input.GetKeyDown(KeyCode.Alpha6)) SwitchToCamera(CameraMonitor.Cam6);
-        if (Input.GetKeyDown(KeyCode.Alpha7)) SwitchToCamera(CameraMonitor.Cam7);
-        if (Input.GetKeyDown(KeyCode.Alpha8)) SwitchToCamera(CameraMonitor.Cam8);
-        if (Input.GetKeyDown(KeyCode.Alpha9)) SwitchToCamera(CameraMonitor.Cam9);
-    }
+            if (hit.collider.name == "001") { SwitchToCamera(CameraMonitor.Cam1); }
+            if (hit.collider.name == "002") { SwitchToCamera(CameraMonitor.Cam2); }
+            if (hit.collider.name == "003") { SwitchToCamera(CameraMonitor.Cam3); }
+            if (hit.collider.name == "004") { SwitchToCamera(CameraMonitor.Cam4); }
+            if (hit.collider.name == "005") { SwitchToCamera(CameraMonitor.Cam5); }
+            if (hit.collider.name == "006") { SwitchToCamera(CameraMonitor.Cam6); }
+            if (hit.collider.name == "007") { SwitchToCamera(CameraMonitor.Cam7); }
+            if (hit.collider.name == "ToOffice") { SwitchToCamera(CameraMonitor.Office); }
+            if (hit.collider.name == "Cctv") { SwitchToCamera(CameraMonitor.Cam1); }
 
+        }
+    }
     private void SwitchToCamera(CameraMonitor cameraMonitor)
     {
         int cameraIndex = (int)cameraMonitor;
@@ -66,13 +64,5 @@ public class GameController : MonoBehaviour
 
         cameras[cameraIndex].gameObject.SetActive(true);
     }
-    private void OnChangeCamera(CameraMonitor monitor)
-    {
-        //if (!TempData.dying && !TempData.playerWon)
-        //{
-        currentMonitor = monitor;
-        SwitchToCamera(monitor);
-        //blipClip.Play();
-        //}
-    }
+    
 }
