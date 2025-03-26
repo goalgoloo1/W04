@@ -18,7 +18,6 @@ public class GameController : MonoBehaviour
     }
 
     [SerializeField] private CinemachineCamera[] cameras;
-    private CameraMonitor currentMonitor = CameraMonitor.Office;
 
 
     //Detects where the mouse is
