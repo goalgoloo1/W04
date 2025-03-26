@@ -262,14 +262,12 @@ public class WiringPuzzleManager : MonoBehaviour
 
     private void CompletePuzzle()
     {
-        Debug.Log("Puzzle completed!");
         if (solvedText != null)
         {
             solvedText.gameObject.SetActive(true);
         }
-
-        // 퍼즐 완료 이벤트 발생
-        OnPuzzleCompleted?.Invoke();
+        Debug.Log("Puzzle completed! 땅콩 Set Common 상태.");
+        MonsterManager.Instance.SetCommon(1);
     }
 
     GameObject CreateEndpoint(string endpointName, Vector3 pos, Color color)

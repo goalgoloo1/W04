@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 
@@ -90,11 +91,11 @@ public class AngelLaser : MonoBehaviour
                 // 목표 도달 체크
                 if (hit.collider.CompareTag("Goal"))
                 {
-                    Debug.Log("goal");
-                    isClear = true;
-
-                    // 몬스터 상태 업데이트
+                    print("Puzzle completed! 석상 Set Common 상태.");
                     MonsterManager.Instance.SetCommon(4);
+
+                    isClear = true;
+                    
                     break;
                 }
             }
