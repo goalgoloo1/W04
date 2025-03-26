@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0ff674e4adf289443bf74f838d4ce3ca
+guid: 23fb5666056aa424f925ccb1464fda91
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3474479202593449299
-    second: peanuy anomaly_0
+      213: 1383922592910240692
+    second: crying boy idle_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: peanuy anomaly_0
+      name: crying boy idle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: daa5fe5e29b28cfc0800000000000000
-      internalID: -3474479202593449299
+      spriteID: 4bb6d03144ea43310800000000000000
+      internalID: 1383922592910240692
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      peanuy anomaly_0: -3474479202593449299
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
