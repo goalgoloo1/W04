@@ -13,12 +13,7 @@ public class CameraManager : MonoBehaviour
         Cam5,
         Cam6,
         Cam7,
-        Puzzle1,
-        Puzzle2,
-        Puzzle3,
-        Puzzle4,
-        Puzzle5,
-        Puzzle6,
+        Cam8,
 
     }
 
@@ -51,13 +46,6 @@ public class CameraManager : MonoBehaviour
             if (hit.collider.name == "007") { SwitchToCamera(CameraMonitor.Cam7); }
             if (hit.collider.name == "ToOffice") { SwitchToCamera(CameraMonitor.Office); }
             if (hit.collider.name == "Cctv") { SwitchToCamera(CameraMonitor.Cam1); }
-            if (hit.collider.name == "Desk1") { SwitchToCamera(CameraMonitor.Puzzle1); }
-            if (hit.collider.name == "Desk2") { SwitchToCamera(CameraMonitor.Puzzle2); }
-            if (hit.collider.name == "Desk3") { SwitchToCamera(CameraMonitor.Puzzle3); }
-            if (hit.collider.name == "Desk4") { SwitchToCamera(CameraMonitor.Puzzle4); }
-            if (hit.collider.name == "Desk5") { SwitchToCamera(CameraMonitor.Puzzle5); }
-            if (hit.collider.name == "Desk6") { SwitchToCamera(CameraMonitor.Puzzle6); }
-
 
         }
     }
