@@ -20,7 +20,7 @@ public class AngelLaser : MonoBehaviour
     public Direction startDirection = Direction.Right;
     public LayerMask reflectLayer;
     public Action StartGameAction;
-
+    [SerializeField]
     private bool isClear = false;
 
 
@@ -57,8 +57,7 @@ public class AngelLaser : MonoBehaviour
         else if(startDirection == Direction.Down)
             direction = transform.up * -1;
         
-        Vector3 origin = startObject.transform.localPosition;
-        
+        Vector3 origin = startObject.transform.localPosition ;
         points.Add(origin);
         
         for (int i = 0; i < maxReflections; i++)
@@ -69,7 +68,7 @@ public class AngelLaser : MonoBehaviour
                 points.Add(hit.point);
 
                 direction = Vector2.Reflect(direction, hit.normal);
-                origin = hit.point + (Vector2)direction.normalized * 0.01f;
+                origin = hit.point + (Vector2)direction.normalized * 0.01f; 
 
                 if (hit.collider.CompareTag("Goal"))
                 {

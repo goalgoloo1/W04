@@ -50,14 +50,9 @@ public class CameraManager : MonoBehaviour
             if (hit.collider.name == "006") { SwitchToCamera(CameraMonitor.Cam6); }
             if (hit.collider.name == "ToOffice") { SwitchToCamera(CameraMonitor.Office); }
             if (hit.collider.name == "Cctv") { SwitchToCamera(CameraMonitor.Cam1); }
-            if (hit.collider.name == "Desk1") { SwitchToCamera(CameraMonitor.Puzzle1); }
-            if (hit.collider.name == "Desk2") { SwitchToCamera(CameraMonitor.Puzzle2); }
-            if (hit.collider.name == "Desk3") { SwitchToCamera(CameraMonitor.Puzzle3); }
-            if (hit.collider.name == "Desk4") { SwitchToCamera(CameraMonitor.Puzzle4); }
-            if (hit.collider.name == "Desk5") { SwitchToCamera(CameraMonitor.Puzzle5); }
-            if (hit.collider.name == "Desk6") { SwitchToCamera(CameraMonitor.Puzzle6); }
-
-
+            if (hit.collider.name == "Desk1") { SwitchToCamera(CameraMonitor.Puzzle1); } //거울
+            if (hit.collider.name == "Desk2") { SwitchToCamera(CameraMonitor.Puzzle2); } //라디오
+            if (hit.collider.name == "Desk3") { SwitchToCamera(CameraMonitor.Puzzle3); } //전선
         }
     }
     private void SwitchToCamera(CameraMonitor cameraMonitor)
@@ -97,6 +92,26 @@ public class CameraManager : MonoBehaviour
         if (cameraMonitor == CameraMonitor.Cam6)
         {
             RoomManager.Instance.SetCamImage(6);
+        }
+        if(cameraMonitor == CameraMonitor.Puzzle1)
+        {
+            PuzzleManager.Instance.StartAngel();
+        }
+        if(cameraMonitor == CameraMonitor.Puzzle2)
+        {
+            
+        }
+        if(cameraMonitor == CameraMonitor.Puzzle3)
+        {
+            
+        }
+
+        if (cameraMonitor == CameraMonitor.Office)
+        {
+            if (PuzzleManager.Instance.currentPuzzle == 1)
+            {
+                PuzzleManager.Instance.EndAngel();
+            }
         }
         
     }
