@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Radio mini game_0: 2417207902555603457
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

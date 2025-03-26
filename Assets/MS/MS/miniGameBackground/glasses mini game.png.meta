@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      glasses mini game_0: 2158691844384286309
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

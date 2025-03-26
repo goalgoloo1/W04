@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      slendermanDie__0: -7373923912304381531
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
