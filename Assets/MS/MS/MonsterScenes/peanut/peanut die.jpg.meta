@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 64d00deb1bb9eca4185fa26d4611bc2d
+guid: a77bc6f63ca4bc04bb7c2755d7a78501
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 269492798080581447
-    second: peanuy die_0
+      213: -7370622253419478369
+    second: peanut die_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: peanuy die_0
+      name: peanut die_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 74f7e13a54e6db300800000000000000
-      internalID: 269492798080581447
+      spriteID: f92c75b9c1a46b990800000000000000
+      internalID: -7370622253419478369
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      peanuy die_0: 269492798080581447
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0594c842a832421448b0d47ce512cfcb
+guid: 5d28f933ea68c464e9127e12a576b9c5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5460317080550750851
-    second: crying girl_0
+      213: -3651428899369962121
+    second: peanut anomaly_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: crying girl_0
+      name: peanut anomaly_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d7546c49b8e0934b0800000000000000
-      internalID: -5460317080550750851
+      spriteID: 775357a13c4835dc0800000000000000
+      internalID: -3651428899369962121
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      crying girl_0: -5460317080550750851
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
