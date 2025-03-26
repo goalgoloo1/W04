@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      peanut anomaly_0: -3651428899369962121
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
