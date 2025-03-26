@@ -15,6 +15,9 @@ public class RadioFrequencyPuzzle : MonoBehaviour
     private Text frequencyText;
     private Text statusText;
 
+    // 캔버스 위치 조정을 위한 오프셋
+    private Vector2 canvasOffset = new Vector2(50f, 0f);
+
     private float stayTime = 2.0f;           // 정답 주파수 유지 시간
     private float currentStayTime = 0f;      // 현재 유지 시간
     private bool puzzleSolved = false;       // 퍼즐 중복 해결 방지
@@ -72,12 +75,28 @@ public class RadioFrequencyPuzzle : MonoBehaviour
 
     void CreateUI()
     {
-        
-        //한성: 디자인 수정을 위해 여기 코드를 참고하시면됩니다.
-        Canvas canvas = FindObjectOfType<Canvas>();
+        GameObject radioCanvasObj = GameObject.Find("RadioCanvas");
+        //if (canvas == null)
+        //{
+        //    GameObject canvasObj = new GameObject("RadioCanvas");
+        //    canvas = canvasObj.AddComponent<Canvas>();
+        //    canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+        //    canvasObj.AddComponent<CanvasScaler>();
+        //    canvasObj.AddComponent<GraphicRaycaster>();
+
+        //    // 캔버스 위치 설정 (월드 공간에서는 직접 위치 지정 필요)
+        //    RectTransform canvasRect = canvas.GetComponent<RectTransform>();
+        //    canvasRect.position = new Vector3(canvasOffset.x, canvasOffset.y, 0);
+        //}
+        //else
+        //{
+        //    // 기존 캔버스의 위치를 조정
+        //    RectTransform canvasRect = canvas.GetComponent<RectTransform>();
+        //    canvasRect.position = new Vector3(canvasOffset.x, canvasOffset.y, 0);
+        //}
 
         GameObject sliderObj = new GameObject("FrequencySlider");
-        sliderObj.transform.SetParent(canvas.transform, false);
+        sliderObj.transform.SetParent(radioCanvasObj.transform, false);
         frequencySlider = sliderObj.AddComponent<Slider>();
 
         // 회색 배경(슬라이더)
@@ -137,7 +156,7 @@ public class RadioFrequencyPuzzle : MonoBehaviour
 
         //검은색 글귀
         GameObject freqTextObj = new GameObject("FrequencyText");
-        freqTextObj.transform.SetParent(canvas.transform, false);
+        freqTextObj.transform.SetParent(radioCanvasObj.transform, false);
         frequencyText = freqTextObj.AddComponent<Text>();
         frequencyText.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
         frequencyText.fontSize = 80;
@@ -150,7 +169,7 @@ public class RadioFrequencyPuzzle : MonoBehaviour
 
         //파란색 글귀
         GameObject statusTextObj = new GameObject("StatusText");
-        statusTextObj.transform.SetParent(canvas.transform, false);
+        statusTextObj.transform.SetParent(radioCanvasObj.transform, false);
         statusText = statusTextObj.AddComponent<Text>();
         statusText.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
         statusText.fontSize = 50;

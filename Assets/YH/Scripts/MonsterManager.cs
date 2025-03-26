@@ -75,9 +75,9 @@ public class MonsterManager : MonoBehaviour
             if (monster.time >= monster.timeToCritical)
             {
                 monster.state = MonsterState.Critical;
-                Debug.Log("YouDie" + monster.name);
-                monster.time = 0;
-                isStop = true;
+                //Debug.Log("YouDie" + monster.name);
+                //monster.time = 0;
+                //isStop = true;
             }
         }
     }

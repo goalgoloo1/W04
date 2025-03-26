@@ -3,6 +3,7 @@ using Unity.Cinemachine;
 
 public class CameraManager : MonoBehaviour
 {
+    public static CameraManager Instance;
     public enum CameraMonitor
     {
         Office,
@@ -65,7 +66,7 @@ public class CameraManager : MonoBehaviour
 
         }
     }
-    private void SwitchToCamera(CameraMonitor cameraMonitor)
+    public void SwitchToCamera(CameraMonitor cameraMonitor)
     {
         int cameraIndex = (int)cameraMonitor;
         TempData.playerViewingCamera = cameraMonitor;
