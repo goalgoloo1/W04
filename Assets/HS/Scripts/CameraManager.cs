@@ -1,7 +1,7 @@
 using UnityEngine;
 using Unity.Cinemachine;
 
-public class GameController : MonoBehaviour
+public class CameraManager : MonoBehaviour
 {
     public enum CameraMonitor
     {
@@ -75,5 +75,5 @@ public class GameController : MonoBehaviour
 
         cameras[cameraIndex].gameObject.SetActive(true);
     }
-    
+
 }

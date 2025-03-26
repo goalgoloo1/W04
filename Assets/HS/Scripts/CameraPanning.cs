@@ -68,7 +68,7 @@ public class CameraPanning : MonoBehaviour
 
         try
         {
-            if (TempData.playerViewingCamera == GameController.CameraMonitor.Office)
+            if (TempData.playerViewingCamera == CameraManager.CameraMonitor.Office)
             {
                 cameraSound.volume = 0.0f;
             }
