@@ -9,9 +9,9 @@ public class WiringPuzzleManager : MonoBehaviour
     //한성 : spacingY를 조절해서 버텍스 간의 위아래 간격을 줄일수잇음
     //한성 : lineWidth를 조절해서 선의 두께를 조절할 수 있음
     //한성 : left rigt spaceingY면 위치를 조절하기 충분할 것 같습니다.
-    private float leftX = -2f;
-    private float rightX = 8f;
-    private float spacingY = 2f;  // Back to Y-axis for 2D
+    private float leftX = -4.44f;
+    private float rightX = 4.82f;
+    private float spacingY = 1.5f;  // Back to Y-axis for 2D
     private float lineWidth = 0.1f;
 
     [SerializeField] private Material lineMaterial;
