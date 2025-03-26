@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    float m_seconds = 0f;
+    float m_seconds = 595f;
     int m_hours = 0;
     bool m_isTimePaused = false;
 
@@ -21,9 +21,11 @@ public class Timer : MonoBehaviour
             m_seconds += Time.deltaTime;
         }
     }
-    void PrintHours() 
+    void PrintHours()
     {
-        m_hours = (int)m_seconds / 100;
+        //한성: 100초가 1시간. 100을 10으로 바꾸면 10초플레이시 1시간 진행
+        const int secondsPerHour = 10;
+        m_hours = (int)m_seconds / secondsPerHour;
         Debug.Log(m_seconds);
         Debug.Log(m_hours);
     }
@@ -32,7 +34,7 @@ public class Timer : MonoBehaviour
         if (m_hours == 6)
         {
             m_isTimePaused = true;
-            Debug.Log("Stage Clear!");
+            Debug.Log("Stage Clear! , Clear.Scene 로드");
         }
     }
 
@@ -45,10 +47,9 @@ public class Timer : MonoBehaviour
         for (int i = 1; i < 8; i++)
         {
             //Debug.Log(MonsterManager.Instance.GetMonster(i).state);
-            if (i == 2) continue; // Skip monster 2 자판기 괴물 관짝행.
+            if (i == 2) continue; // Skip monster 2, 자판기 괴물 피쳐 삭제.
             if (MonsterManager.Instance.GetMonster(i).state == MonsterState.Anomalous)
             {
-
                 m_isTimePaused = true;
                 return;
             }
