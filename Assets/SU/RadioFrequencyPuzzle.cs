@@ -80,16 +80,18 @@ public class RadioFrequencyPuzzle : MonoBehaviour
         sliderObj.transform.SetParent(canvas.transform, false);
         frequencySlider = sliderObj.AddComponent<Slider>();
 
+        // 회색 배경(슬라이더)
         GameObject sliderBackground = new GameObject("Background");
         sliderBackground.transform.SetParent(sliderObj.transform, false);
         Image bgImage = sliderBackground.AddComponent<Image>();
-        bgImage.color = Color.gray;
+        bgImage.color = Color.black;
         RectTransform bgRect = sliderBackground.GetComponent<RectTransform>();
         bgRect.anchorMin = new Vector2(0, 0.25f);
         bgRect.anchorMax = new Vector2(1, 0.75f);
         bgRect.offsetMin = Vector2.zero;
         bgRect.offsetMax = Vector2.zero;
 
+        // 색을 채우는 과정
         GameObject fillArea = new GameObject("Fill Area");
         fillArea.transform.SetParent(sliderObj.transform, false);
         RectTransform fillAreaRect = fillArea.AddComponent<RectTransform>();
@@ -98,10 +100,11 @@ public class RadioFrequencyPuzzle : MonoBehaviour
         fillAreaRect.offsetMin = new Vector2(10, 0);
         fillAreaRect.offsetMax = new Vector2(-10, 0);
 
+        //녹색 슬라이더 
         GameObject fill = new GameObject("Fill");
         fill.transform.SetParent(fillArea.transform, false);
         Image fillImage = fill.AddComponent<Image>();
-        fillImage.color = Color.green;
+        fillImage.color = Color.grey;
         RectTransform fillRect = fill.GetComponent<RectTransform>();
         fillRect.anchorMin = new Vector2(0, 0);
         fillRect.anchorMax = new Vector2(1, 1);
@@ -109,6 +112,7 @@ public class RadioFrequencyPuzzle : MonoBehaviour
         fillRect.offsetMax = Vector2.zero;
         frequencySlider.fillRect = fillRect;
 
+        // 흰색 스크롤 하는 친구
         GameObject handleArea = new GameObject("Handle Slide Area");
         handleArea.transform.SetParent(sliderObj.transform, false);
         RectTransform handleAreaRect = handleArea.AddComponent<RectTransform>();
@@ -117,6 +121,7 @@ public class RadioFrequencyPuzzle : MonoBehaviour
         handleAreaRect.offsetMin = Vector2.zero;
         handleAreaRect.offsetMax = Vector2.zero;
 
+        //실제 잡고 움직이는 핸들
         GameObject handle = new GameObject("Handle");
         handle.transform.SetParent(handleArea.transform, false);
         Image handleImage = handle.AddComponent<Image>();
@@ -127,29 +132,33 @@ public class RadioFrequencyPuzzle : MonoBehaviour
         frequencySlider.handleRect = handleRect;
 
         RectTransform sliderRect = sliderObj.GetComponent<RectTransform>();
-        sliderRect.sizeDelta = new Vector2(300, 20);
-        sliderRect.anchoredPosition = new Vector2(0, -50);
+        sliderRect.sizeDelta = new Vector2(1000, 80);
+        sliderRect.anchoredPosition = new Vector2(0, 60);
 
+        //검은색 글귀
         GameObject freqTextObj = new GameObject("FrequencyText");
         freqTextObj.transform.SetParent(canvas.transform, false);
         frequencyText = freqTextObj.AddComponent<Text>();
         frequencyText.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
-        frequencyText.fontSize = 24;
+        frequencyText.fontSize = 80;
+        frequencyText.fontStyle = FontStyle.Bold;
         frequencyText.alignment = TextAnchor.MiddleCenter;
         RectTransform freqTextRect = frequencyText.GetComponent<RectTransform>();
-        freqTextRect.sizeDelta = new Vector2(400, 50);
-        freqTextRect.anchoredPosition = new Vector2(0, 0);
+        freqTextRect.sizeDelta = new Vector2(800, 100);
+        freqTextRect.anchoredPosition = new Vector2(0, 200);
         frequencyText.color = Color.black;
 
+        //파란색 글귀
         GameObject statusTextObj = new GameObject("StatusText");
         statusTextObj.transform.SetParent(canvas.transform, false);
         statusText = statusTextObj.AddComponent<Text>();
         statusText.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
-        statusText.fontSize = 24;
+        statusText.fontSize = 50;
+        statusText.fontStyle = FontStyle.Bold;
         statusText.alignment = TextAnchor.MiddleCenter;
         RectTransform statusTextRect = statusText.GetComponent<RectTransform>();
-        statusTextRect.sizeDelta = new Vector2(400, 50);
-        statusTextRect.anchoredPosition = new Vector2(0, -100);
-        statusText.color = Color.blue;
+        statusTextRect.sizeDelta = new Vector2(800, 100);
+        statusTextRect.anchoredPosition = new Vector2(0, -55);
+        statusText.color = Color.black;
     }
 }
