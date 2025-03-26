@@ -5,17 +5,15 @@ using System.Collections.Generic;
 
 public class WiringPuzzleManager : MonoBehaviour
 {
-    private float leftX = 31f;
-    private float rightX = 19f;
-    private float spacingZ = 2f;  // Changed from spacingY to spacingZ for 90-degree rotation
+    private float leftX = -2f;
+    private float rightX = 8f;
+    private float spacingY = 2f;  // Back to Y-axis for 2D
     private float lineWidth = 0.1f;
-    private float yPosition = 1f; // Fixed Y position for all points
-    private float zOffset = 4f;   // Z축 방향으로 +4 이동을 위한 오프셋
 
     [SerializeField] private Material lineMaterial;
     [SerializeField] private Text solvedText;
 
-    // 퍼즐 완료 이벤트 클리어하면 클리어 디버그 뱉음 (외부 클래스에서 구독해서 사용)
+    // 퍼즐 완료 이벤트
     public event Action OnPuzzleCompleted;
 
     // Internal class: Endpoint information
@@ -97,8 +95,8 @@ public class WiringPuzzleManager : MonoBehaviour
     {
         for (int i = 0; i < numWires; i++)
         {
-            float z = CalculateEndpointZ(i, numWires) + zOffset;  // zOffset 추가
-            Vector3 pos = new Vector3(leftX, yPosition, z);
+            float y = CalculateEndpointY(i, numWires);
+            Vector3 pos = new Vector3(leftX, y, 0); // Using 2D coordinates with Z=0
             GameObject epObj = CreateEndpoint($"Left_{wireColors[i].Item1}", pos, wireColors[i].Item2);
             leftEndpoints.Add(new Endpoint(epObj, wireColors[i].Item1, wireColors[i].Item2));
         }
@@ -111,16 +109,16 @@ public class WiringPuzzleManager : MonoBehaviour
 
         for (int i = 0; i < numWires; i++)
         {
-            float z = CalculateEndpointZ(i, numWires) + zOffset;  // zOffset 추가
-            Vector3 pos = new Vector3(rightX, yPosition, z);
+            float y = CalculateEndpointY(i, numWires);
+            Vector3 pos = new Vector3(rightX, y, 0); // Using 2D coordinates with Z=0
             GameObject epObj = CreateEndpoint($"Right_{shuffled[i].Item1}", pos, shuffled[i].Item2);
             rightEndpoints.Add(new Endpoint(epObj, shuffled[i].Item1, shuffled[i].Item2));
         }
     }
 
-    private float CalculateEndpointZ(int index, int totalCount)
+    private float CalculateEndpointY(int index, int totalCount)
     {
-        return (index - (totalCount - 1) / 2f) * spacingZ;
+        return (index - (totalCount - 1) / 2f) * spacingY;
     }
 
     private void SetupDraggingLine()
@@ -133,7 +131,6 @@ public class WiringPuzzleManager : MonoBehaviour
         tempLineRenderer.positionCount = 2;
         tempLineRenderer.enabled = false;
     }
-
 
     private void HandleMouseInput()
     {
@@ -190,38 +187,36 @@ public class WiringPuzzleManager : MonoBehaviour
 
     private Vector3 GetMouseWorldPosition()
     {
-        // Create a ray from the camera through the mouse position
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        // Define a plane at the Y position (with Z offset)
-        Plane plane = new Plane(Vector3.up, new Vector3(0, yPosition, zOffset));
-
-        float distance;
-        if (plane.Raycast(ray, out distance))
-        {
-            // Return the point where the ray intersects the plane
-            return ray.GetPoint(distance);
-        }
-
-        // Fallback if no intersection (shouldn't happen if camera is properly positioned)
-        return Vector3.zero;
+        Vector3 worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        worldPos.z = 0; // Ensure we're in the 2D plane
+        return worldPos;
     }
 
     private bool IsNearEndpoint(Vector3 position, Vector3 endpointPosition)
     {
-        return Vector3.Distance(position, endpointPosition) < 0.5f;
+        // Use 2D distance calculation
+        position.z = 0;
+        endpointPosition.z = 0;
+        return Vector2.Distance(position, endpointPosition) < 0.5f;
     }
 
     private void StartDragging(Endpoint endpoint, Vector3 position)
     {
         currentDraggingEndpoint = endpoint;
         tempLineRenderer.enabled = true;
-        tempLineRenderer.SetPosition(0, endpoint.obj.transform.position);
+
+        // Ensure Z=0 for 2D
+        Vector3 startPos = endpoint.obj.transform.position;
+        startPos.z = 0;
+        position.z = 0;
+
+        tempLineRenderer.SetPosition(0, startPos);
         tempLineRenderer.SetPosition(1, position);
     }
 
     private void UpdateDragLine(Vector3 position)
     {
+        position.z = 0; // Ensure Z=0 for 2D
         tempLineRenderer.SetPosition(1, position);
     }
 
@@ -238,12 +233,13 @@ public class WiringPuzzleManager : MonoBehaviour
         leftEndpoint.connected = true;
         rightEndpoint.connected = true;
 
-        CreatePermanentLine(
-            leftEndpoint.obj.transform.position,
-            rightEndpoint.obj.transform.position,
-            leftEndpoint.color,
-            leftEndpoint.wireName
-        );
+        // Ensure Z=0 for 2D
+        Vector3 startPos = leftEndpoint.obj.transform.position;
+        Vector3 endPos = rightEndpoint.obj.transform.position;
+        startPos.z = 0;
+        endPos.z = 0;
+
+        CreatePermanentLine(startPos, endPos, leftEndpoint.color, leftEndpoint.wireName);
     }
 
     private void StopDragging()
@@ -275,20 +271,17 @@ public class WiringPuzzleManager : MonoBehaviour
     GameObject CreateEndpoint(string endpointName, Vector3 pos, Color color)
     {
         GameObject ep = new GameObject(endpointName);
-        ep.transform.position = pos;
+        ep.transform.position = pos; // Position is already set with Z=0
 
         // Sprite renderer
         SpriteRenderer sr = ep.AddComponent<SpriteRenderer>();
         sr.sprite = GenerateCircleSprite(32, color);
         sr.color = Color.white;
 
-        // Make the sprite face upward (rotated 90 degrees around X axis)
-        ep.transform.rotation = Quaternion.Euler(90, 0, 0);
-
-        // Add BoxCollider instead of CircleCollider2D for 3D space
-        BoxCollider col = ep.AddComponent<BoxCollider>();
+        // Add CircleCollider2D for 2D space
+        CircleCollider2D col = ep.AddComponent<CircleCollider2D>();
         col.isTrigger = true;
-        col.size = new Vector3(1f, 0.1f, 1f);
+        col.radius = 0.5f;
 
         return ep;
     }
@@ -361,4 +354,3 @@ public class WiringPuzzleManager : MonoBehaviour
         }
     }
 }
-
