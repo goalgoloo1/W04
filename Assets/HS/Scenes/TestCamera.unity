@@ -546,7 +546,7 @@ GameObject:
   - component: {fileID: 77134490}
   - component: {fileID: 77134489}
   m_Layer: 0
-  m_Name: Static (1)
+  m_Name: Noise
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2049,7 +2049,7 @@ Transform:
   m_GameObject: {fileID: 405873990}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: -0.7071068, w: 0}
-  m_LocalPosition: {x: 0, y: 10, z: 65}
+  m_LocalPosition: {x: 0, y: 10, z: 80}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2362,7 +2362,7 @@ GameObject:
   - component: {fileID: 454690236}
   - component: {fileID: 454690239}
   m_Layer: 0
-  m_Name: Static
+  m_Name: Noise
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4374,7 +4374,7 @@ GameObject:
   - component: {fileID: 878618833}
   - component: {fileID: 878618832}
   m_Layer: 0
-  m_Name: Static (1)
+  m_Name: Noise
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5950,7 +5950,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1393879702}
   m_Layer: 0
-  m_Name: Button (2)
+  m_Name: Noise
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6083,7 +6083,7 @@ GameObject:
   - component: {fileID: 1409980453}
   - component: {fileID: 1409980452}
   m_Layer: 0
-  m_Name: Static (1)
+  m_Name: Noise
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7166,7 +7166,7 @@ GameObject:
   - component: {fileID: 1682346121}
   - component: {fileID: 1682346120}
   m_Layer: 0
-  m_Name: Static (1)
+  m_Name: Noise
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7525,7 +7525,7 @@ GameObject:
   - component: {fileID: 1732825176}
   - component: {fileID: 1732825175}
   m_Layer: 0
-  m_Name: Static (1)
+  m_Name: Noise
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
