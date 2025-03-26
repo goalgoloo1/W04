@@ -17,6 +17,6 @@ public class MonsterData : ScriptableObject
     //cam 넘버
     public int camNum;
     //예외처리
-    public bool isMask;
+    public bool isSlender;
     public bool isGirl;
 }

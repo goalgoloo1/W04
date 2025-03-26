@@ -1930,6 +1930,7 @@ MonoBehaviour:
   - {fileID: 365321341}
   - {fileID: 100664509}
   - {fileID: 1755530624}
+  currentCamera: 0
 --- !u!4 &689941033
 Transform:
   m_ObjectHideFlags: 0

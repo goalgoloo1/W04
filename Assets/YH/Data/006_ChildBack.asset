@@ -15,12 +15,12 @@ MonoBehaviour:
   monsterName: SCP_ChildBack
   num: 6
   state: 0
-  timeToAnomalous: 2
+  timeToAnomalous: 11
   timeToCritical: 23
   commonSprite: {fileID: 1383922592910240692, guid: 23fb5666056aa424f925ccb1464fda91, type: 3}
   anomalousSprite: {fileID: 1383922592910240692, guid: 23fb5666056aa424f925ccb1464fda91, type: 3}
   criticalSprite: {fileID: 0}
   isCheckAnomalous: 0
   camNum: 3
-  isMask: 0
+  isSlender: 0
   isGirl: 1

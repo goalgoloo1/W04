@@ -22,13 +22,17 @@ public class CameraManager : MonoBehaviour
     }
 
     [SerializeField] private CinemachineCamera[] cameras;
-
-
+    public int currentCamera = 0;
+    
     //Detects where the mouse is
     private Ray ray;
     private RaycastHit hit;
 
-
+    private void Awake()
+    {
+        Instance = this;
+    }
+    
     void Start()
     {
         SwitchToCamera(CameraMonitor.Office);
@@ -42,15 +46,20 @@ public class CameraManager : MonoBehaviour
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit) && Input.GetKeyDown(KeyCode.Mouse0))
         {
+            
             //Debug.Log(hit.collider.name);
-            if (hit.collider.name == "001") { SwitchToCamera(CameraMonitor.Cam1); }
-            if (hit.collider.name == "002") { SwitchToCamera(CameraMonitor.Cam2); }
-            if (hit.collider.name == "003") { SwitchToCamera(CameraMonitor.Cam3); }
-            if (hit.collider.name == "004") { SwitchToCamera(CameraMonitor.Cam4); }
-            if (hit.collider.name == "005") { SwitchToCamera(CameraMonitor.Cam5); }
-            if (hit.collider.name == "006") { SwitchToCamera(CameraMonitor.Cam6); }
-            if (hit.collider.name == "ToOffice") { SwitchToCamera(CameraMonitor.Office); }
-            if (hit.collider.name == "Cctv") { SwitchToCamera(CameraMonitor.Cam1); }
+            if (hit.collider.name == "001") { SwitchToCamera(CameraMonitor.Cam1);
+                currentCamera = 1;
+            }
+            if (hit.collider.name == "002") { SwitchToCamera(CameraMonitor.Cam2); currentCamera = 2;}
+            if (hit.collider.name == "003") { SwitchToCamera(CameraMonitor.Cam3); currentCamera = 3;}
+            if (hit.collider.name == "004") { SwitchToCamera(CameraMonitor.Cam4); currentCamera = 4;}
+            if (hit.collider.name == "005") { SwitchToCamera(CameraMonitor.Cam5); currentCamera = 5;}
+            if (hit.collider.name == "006") { SwitchToCamera(CameraMonitor.Cam6);
+                currentCamera = 6;
+            }
+            if (hit.collider.name == "ToOffice") { SwitchToCamera(CameraMonitor.Office); currentCamera = 0;}
+            if (hit.collider.name == "Cctv") { SwitchToCamera(CameraMonitor.Cam1); currentCamera = -1;}
             if (hit.collider.name == "Desk1") { SwitchToCamera(CameraMonitor.Puzzle1); } //거울
             if (hit.collider.name == "Desk2") { SwitchToCamera(CameraMonitor.Puzzle2); } //라디오
             if (hit.collider.name == "Desk3") { SwitchToCamera(CameraMonitor.Puzzle3); } //전선

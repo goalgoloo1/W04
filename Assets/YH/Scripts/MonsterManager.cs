@@ -18,12 +18,13 @@ public class MonsterManager : MonoBehaviour
     [SerializeField] private Monster[] monsters;
     [SerializeField]
     private bool isStop = false;
+    private bool isSlenderTimeUpdate = false;
 
     
     [Header("예외 이상현상 들")]
     [SerializeField]
-    private float maskDeadTime = 5;
-    private float maskDeadTimer = 0;
+    private float slenderTime = 2;
+    private float slenderTimer = 0;
     public Sprite boySprite;
 
     private void Awake()
@@ -42,6 +43,21 @@ public class MonsterManager : MonoBehaviour
     {
         if (isStop) return;
         MonsterTimeUpdate();
+        if (CameraManager.Instance.currentCamera == 4 )
+        {
+            if (GetMonster(5) != null)
+            {
+                if (GetMonster(5).state == MonsterState.Anomalous)
+                {
+                    slenderTimer += Time.deltaTime;
+                    if (slenderTimer >= slenderTime)
+                    {
+                        monsters[3].state = MonsterState.Critical;
+                        slenderTimer = 0;
+                    }
+                }
+            }
+        }
     }
 
 
@@ -69,7 +85,7 @@ public class MonsterManager : MonoBehaviour
 
     private void ToCritical(Monster monster)
     {
-        if(monster.isMask) return;
+        if(monster.isSlender) return;
         if (monster.state == MonsterState.Anomalous)
         {
             if (monster.time >= monster.timeToCritical)
@@ -100,7 +116,7 @@ public class MonsterManager : MonoBehaviour
             monsters[i].criticalSprite = monsterData[i].criticalSprite;
             monsters[i].isCheckAnomalous = monsterData[i].isCheckAnomalous;
             monsters[i].camNum = monsterData[i].camNum;
-            monsters[i].isMask = monsterData[i].isMask;
+            monsters[i].isSlender = monsterData[i].isSlender;
             monsters[i].isGirl = monsterData[i].isGirl;
         }
     }
@@ -161,6 +177,6 @@ public class Monster
     //cam 넘버
     public int camNum;
     //예외처리
-    public bool isMask;
+    public bool isSlender;
     public bool isGirl;
 }
