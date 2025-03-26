@@ -10,7 +10,7 @@ public class AngelGameController : MonoBehaviour
         OffGame();
     }
 
-    private void OffGame()
+    public void OffGame()
     {
         for (int i = 0; i < Games.Length; i++)
         {
@@ -24,7 +24,7 @@ public class AngelGameController : MonoBehaviour
             StartGame();
     }
 
-    private void StartGame()
+    public void StartGame()
     {
         int random = Random.Range(0, Games.Length);
         for (int i = 0; i < Games.Length; i++)
