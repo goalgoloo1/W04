@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class RadioFrequencyPuzzle : MonoBehaviour
 {
@@ -12,24 +13,16 @@ public class RadioFrequencyPuzzle : MonoBehaviour
     private Text frequencyText;
     private Text statusText;
 
-    private float stayTime = 2.0f;           
-    private float currentStayTime = 0f;     
-    private bool puzzleSolved = false;       
+    private float stayTime = 2.0f;
+    private float currentStayTime = 0f;
+    private bool puzzleSolved = false;
+
+    private float resetDelay = 3.0f; // Delay in seconds before resetting after solving
 
     void Start()
     {
         CreateUI();
-
-        targetFrequency = Random.Range(minFrequency, maxFrequency);
-        Debug.Log("Target Frequency (hidden): " + targetFrequency);
-
-        frequencySlider.minValue = minFrequency;
-        frequencySlider.maxValue = maxFrequency;
-        frequencySlider.value = (minFrequency + maxFrequency) / 2;
-        frequencySlider.onValueChanged.AddListener(OnFrequencyChanged);
-
-        frequencyText.text = "Frequency: " + frequencySlider.value.ToString("F1") + " MHz";
-        statusText.text = "Adjust the radio frequency to find the signal.";
+        ResetPuzzle(); // Initialize the puzzle
     }
 
     void Update()
@@ -48,7 +41,7 @@ public class RadioFrequencyPuzzle : MonoBehaviour
                 statusText.text = "Puzzle Solved!";
                 Debug.Log("Puzzle Solved! Balerina set common state");
                 MonsterManager.Instance.SetCommon(7);
-
+                StartCoroutine(ResetAfterDelay()); // Start the reset process
             }
             else
             {
@@ -66,6 +59,32 @@ public class RadioFrequencyPuzzle : MonoBehaviour
     void OnFrequencyChanged(float value)
     {
         frequencyText.text = "Frequency: " + value.ToString("F1") + " MHz";
+    }
+
+    void ResetPuzzle()
+    {
+        // Generate a new target frequency
+        targetFrequency = Random.Range(minFrequency, maxFrequency);
+        Debug.Log("Target Frequency (hidden): " + targetFrequency);
+
+        // Reset slider to midpoint
+        frequencySlider.minValue = minFrequency;
+        frequencySlider.maxValue = maxFrequency;
+        frequencySlider.value = (minFrequency + maxFrequency) / 2;
+        frequencyText.text = "Frequency: " + frequencySlider.value.ToString("F1") + " MHz";
+
+        // Reset timer and solved state
+        currentStayTime = 0f;
+        puzzleSolved = false;
+
+        // Reset UI text
+        statusText.text = "Adjust the radio frequency to find the signal.";
+    }
+
+    IEnumerator ResetAfterDelay()
+    {
+        yield return new WaitForSeconds(resetDelay); // Wait for the delay
+        ResetPuzzle(); // Then reset the puzzle
     }
 
     void CreateUI()
@@ -149,5 +168,8 @@ public class RadioFrequencyPuzzle : MonoBehaviour
         statusTextRect.sizeDelta = new Vector2(800, 100);
         statusTextRect.anchoredPosition = new Vector2(0, -55);
         statusText.color = Color.black;
+
+        // Ensure the slider's onValueChanged listener is set up here
+        frequencySlider.onValueChanged.AddListener(OnFrequencyChanged);
     }
 }

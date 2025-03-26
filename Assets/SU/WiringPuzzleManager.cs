@@ -1,14 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 
 public class WiringPuzzleManager : MonoBehaviour
 {
-    //한성 : leftX와 rightX를 조절해서 화면에 나타나는 버텍스의 위치를 옮길 수 있음
-    //한성 : spacingY를 조절해서 버텍스 간의 위아래 간격을 줄일수잇음
-    //한성 : lineWidth를 조절해서 선의 두께를 조절할 수 있음
-    //한성 : left rigt spaceingY면 위치를 조절하기 충분할 것 같습니다.
+  
     private float leftX = 71f;
     private float rightX = 79f;
     private float spacingY = 1.5f;  // Back to Y-axis for 2D
@@ -16,11 +14,10 @@ public class WiringPuzzleManager : MonoBehaviour
 
     [SerializeField] private Material lineMaterial;
     [SerializeField] private Text solvedText;
+    [SerializeField] private float resetDelay = 2.0f; // Time before resetting the puzzle after completion
 
-    // 퍼즐 완료 이벤트
     public event Action OnPuzzleCompleted;
 
-    // Internal class: Endpoint information
     private class Endpoint
     {
         public GameObject obj;
@@ -59,28 +56,89 @@ public class WiringPuzzleManager : MonoBehaviour
 
     private Endpoint currentDraggingEndpoint = null;
     private LineRenderer tempLineRenderer;
+    private bool puzzleSolved = false;
 
     void Start()
     {
+        InitPuzzle();
+    }
+
+    // Initialize (or reset) the puzzle
+    public void InitPuzzle()
+    {
+        // Clear existing objects if any
+        CleanupPuzzle();
+
+        // Reset state
+        puzzleSolved = false;
+        if (solvedText != null)
+        {
+            solvedText.gameObject.SetActive(false);
+        }
+
+        // Create new wire endpoints
         CreateWireEndpoints();
         SetupDraggingLine();
     }
 
+    // Clean up all objects before resetting
+    private void CleanupPuzzle()
+    {
+        // Destroy all left endpoints
+        foreach (var endpoint in leftEndpoints)
+        {
+            if (endpoint.obj != null)
+            {
+                Destroy(endpoint.obj);
+            }
+        }
+        leftEndpoints.Clear();
+
+        // Destroy all right endpoints
+        foreach (var endpoint in rightEndpoints)
+        {
+            if (endpoint.obj != null)
+            {
+                Destroy(endpoint.obj);
+            }
+        }
+        rightEndpoints.Clear();
+
+        // Destroy all connections
+        foreach (var connection in connections)
+        {
+            if (connection.lineObj != null)
+            {
+                Destroy(connection.lineObj);
+            }
+        }
+        connections.Clear();
+
+        // Destroy temp line renderer if it exists
+        if (tempLineRenderer != null)
+        {
+            Destroy(tempLineRenderer.gameObject);
+            tempLineRenderer = null;
+        }
+
+        currentDraggingEndpoint = null;
+    }
+
     void Update()
     {
-        HandleMouseInput();
+        if (!puzzleSolved)
+        {
+            HandleMouseInput();
+        }
     }
 
     private void CreateWireEndpoints()
     {
-        // 와이어 색상 및 식별자 설정
         var wireColors = GetWireColors();
         int numWires = wireColors.Count;
 
-        // 왼쪽 엔드포인트 생성
         CreateLeftEndpoints(wireColors, numWires);
 
-        // 오른쪽 엔드포인트 생성 (색상 순서 무작위)
         CreateRightEndpoints(wireColors, numWires);
     }
 
@@ -254,7 +312,7 @@ public class WiringPuzzleManager : MonoBehaviour
 
     private void CheckPuzzleCompletion()
     {
-        if (AllConnected())
+        if (!puzzleSolved && AllConnected())
         {
             CompletePuzzle();
         }
@@ -262,12 +320,27 @@ public class WiringPuzzleManager : MonoBehaviour
 
     private void CompletePuzzle()
     {
+        puzzleSolved = true;
+
         if (solvedText != null)
         {
             solvedText.gameObject.SetActive(true);
         }
+
         Debug.Log("Puzzle completed! 땅콩 Set Common 상태.");
         MonsterManager.Instance.SetCommon(1);
+
+        // Trigger the completion event
+        OnPuzzleCompleted?.Invoke();
+
+        // Schedule reset after delay
+        StartCoroutine(ResetAfterDelay());
+    }
+
+    private IEnumerator ResetAfterDelay()
+    {
+        yield return new WaitForSeconds(resetDelay);
+        InitPuzzle();
     }
 
     GameObject CreateEndpoint(string endpointName, Vector3 pos, Color color)
@@ -354,5 +427,12 @@ public class WiringPuzzleManager : MonoBehaviour
             list[i] = list[randIndex];
             list[randIndex] = temp;
         }
+    }
+
+    // Public method to manually reset the puzzle
+    public void ResetPuzzle()
+    {
+        StopAllCoroutines();
+        InitPuzzle();
     }
 }
