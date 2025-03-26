@@ -16,6 +16,8 @@ public class MonsterManager : MonoBehaviour
 
     public MonsterData[] monsterData;
     [SerializeField] private Monster[] monsters;
+    [SerializeField]
+    private bool isStop = false;
 
     
     [Header("예외 이상현상 들")]
@@ -32,11 +34,13 @@ public class MonsterManager : MonoBehaviour
     private void Start()
     {
         SetMonsterData();
+        isStop = false;
     }
 
 
     private void Update()
     {
+        if (isStop) return;
         MonsterTimeUpdate();
     }
 
@@ -71,7 +75,9 @@ public class MonsterManager : MonoBehaviour
             if (monster.time >= monster.timeToCritical)
             {
                 monster.state = MonsterState.Critical;
+                Debug.Log("YouDie" + monster.name);
                 monster.time = 0;
+                isStop = true;
             }
         }
     }
@@ -102,7 +108,7 @@ public class MonsterManager : MonoBehaviour
     public void SetCommon(int num) //몬스터의 번호를 입력 받습니다 1 ~ 7
     {
         Monster mon = GetMonster(num);
-        if (mon.state == MonsterState.Anomalous && mon.isCheckAnomalous)
+        if ((mon.state == MonsterState.Anomalous && mon.isCheckAnomalous) || (mon.num == 6 && mon.state == MonsterState.Anomalous))
         {
             mon.state = MonsterState.Common;
             mon.time = 0;
@@ -126,7 +132,7 @@ public class MonsterManager : MonoBehaviour
     {
         foreach (var data in monsters)
         {
-            Debug.Log(data.camNum + " "+ num);
+            //Debug.Log(data.camNum + " "+ num);
             if (data.camNum == num)
                 return data;
         }

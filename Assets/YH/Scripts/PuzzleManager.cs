@@ -5,7 +5,9 @@ public class PuzzleManager : MonoBehaviour
 {
     public static PuzzleManager Instance;
     public AngelGameController angelGameController;
+    public MaskPuzzle maskPuzzle;
     public int currentPuzzle = 0;
+    
     
     private void Awake()
     {
@@ -15,6 +17,7 @@ public class PuzzleManager : MonoBehaviour
     private void Start()
     {
         angelGameController = GetComponentInChildren<AngelGameController>();
+        maskPuzzle = GetComponentInChildren<MaskPuzzle>();
     }
 
 
@@ -28,5 +31,21 @@ public class PuzzleManager : MonoBehaviour
     {
         angelGameController.OffGame();
         currentPuzzle = 0;
+    }
+
+    public void OnMask()
+    {
+        maskPuzzle.OnMask();
+    }
+    
+    public void OffMask()
+    {
+        maskPuzzle.OffMask();
+    }
+
+    public void ResetButton()
+    {
+        Debug.Log("Reset Button");
+        MonsterManager.Instance.SetCommon(6);
     }
 }

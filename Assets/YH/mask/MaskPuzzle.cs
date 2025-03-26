@@ -24,28 +24,28 @@ public class MaskPuzzle : MonoBehaviour
     public void Update()
     {
         TimeUpdate();
-        
-        //임시로 키보드로 테스트
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            if (!isMaskOn && !isPlaying)
-            {
-                pd.playableAsset = MaskOn;
-                time = 0;
-                pd.Play();
-                isPlaying = true;
-            }
+        if(Input.GetKeyDown(KeyCode.Mouse0))
+            OffMask();
+    }
 
+    public void OnMask()
+    {
+        if (!isMaskOn && !isPlaying)
+        {
+            pd.playableAsset = MaskOn;
+            time = 0;
+            pd.Play();
+            isPlaying = true;
         }
+    }
 
-        if (Input.GetKeyDown(KeyCode.W))
+    public void OffMask()
+    {
+        if (isMaskOn && !isPlaying)
         {
-            if (isMaskOn && !isPlaying)
-            {
-                pd.playableAsset = MaskOff;
-                pd.Play();
-                isPlaying = true;
-            }
+            pd.playableAsset = MaskOff;
+            pd.Play();
+            isPlaying = true;
         }
     }
     

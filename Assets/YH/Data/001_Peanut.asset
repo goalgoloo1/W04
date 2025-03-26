@@ -15,8 +15,8 @@ MonoBehaviour:
   monsterName: SCP_Peanut
   num: 1
   state: 0
-  timeToAnomalous: 8
-  timeToCritical: 4
+  timeToAnomalous: 111
+  timeToCritical: 111
   commonSprite: {fileID: 4120171814730008100, guid: 2d29e47a61e10fc4ba3aaace1860c7e4, type: 3}
   anomalousSprite: {fileID: -3651428899369962121, guid: 5d28f933ea68c464e9127e12a576b9c5, type: 3}
   criticalSprite: {fileID: -7370622253419478369, guid: a77bc6f63ca4bc04bb7c2755d7a78501, type: 3}

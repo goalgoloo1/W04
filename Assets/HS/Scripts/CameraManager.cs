@@ -41,7 +41,7 @@ public class CameraManager : MonoBehaviour
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit) && Input.GetKeyDown(KeyCode.Mouse0))
         {
-            Debug.Log(hit.collider.name);
+            //Debug.Log(hit.collider.name);
             if (hit.collider.name == "001") { SwitchToCamera(CameraMonitor.Cam1); }
             if (hit.collider.name == "002") { SwitchToCamera(CameraMonitor.Cam2); }
             if (hit.collider.name == "003") { SwitchToCamera(CameraMonitor.Cam3); }
@@ -53,13 +53,23 @@ public class CameraManager : MonoBehaviour
             if (hit.collider.name == "Desk1") { SwitchToCamera(CameraMonitor.Puzzle1); } //거울
             if (hit.collider.name == "Desk2") { SwitchToCamera(CameraMonitor.Puzzle2); } //라디오
             if (hit.collider.name == "Desk3") { SwitchToCamera(CameraMonitor.Puzzle3); } //전선
+            if (hit.collider.name == "Desk4")
+            {
+                PuzzleManager.Instance.OnMask();
+            }
+
+            if (hit.collider.name == "Reset")
+            {
+                PuzzleManager.Instance.ResetButton();
+            }
+
         }
     }
     private void SwitchToCamera(CameraMonitor cameraMonitor)
     {
         int cameraIndex = (int)cameraMonitor;
         TempData.playerViewingCamera = cameraMonitor;
-        Debug.Log(TempData.playerViewingCamera + " hi");
+        //Debug.Log(TempData.playerViewingCamera + " hi");
 
 
         for (int i = 0; i < cameras.Length; i++)
