@@ -15,6 +15,13 @@ public class RoomManager : MonoBehaviour
     public void SetCamImage(int camNum)
     {
         Monster mon = MonsterManager.Instance.GetMonsterByCamNum(camNum);
+
+        if (MonsterManager.Instance.GetMonster(6).state == MonsterState.Anomalous)
+        {
+            cams[camNum - 1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite =
+                MonsterManager.Instance.GetMonster(6).anomalousSprite;
+            return;
+        }
         
         if(mon.state == MonsterState.Common)
             cams[camNum - 1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = mon.commonSprite;

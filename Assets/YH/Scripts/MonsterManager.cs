@@ -17,6 +17,13 @@ public class MonsterManager : MonoBehaviour
     public MonsterData[] monsterData;
     [SerializeField] private Monster[] monsters;
 
+    
+    [Header("예외 이상현상 들")]
+    [SerializeField]
+    private float maskDeadTime = 5;
+    private float maskDeadTimer = 0;
+    public Sprite boySprite;
+
     private void Awake()
     {
         Instance = this;
@@ -46,7 +53,6 @@ public class MonsterManager : MonoBehaviour
 
     private void ToAnomalous(Monster monster)
     {
-        if(monster.isGirl) return;
         if (monster.state == MonsterState.Common)
         {
             if (monster.time >= monster.timeToAnomalous)
@@ -127,6 +133,9 @@ public class MonsterManager : MonoBehaviour
         Debug.LogWarning("Monster not found"); 
         return null;
     }
+    
+    
+    
 }
 
 [Serializable]
