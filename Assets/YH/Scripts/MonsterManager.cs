@@ -23,8 +23,8 @@ public class MonsterManager : MonoBehaviour
     
     [Header("예외 이상현상 들")]
     [SerializeField]
-    private float slenderTime = 2;
-    private float slenderTimer = 0;
+    public float slenderTime = 2;
+    public float slenderTimer = 0;
     public Sprite boySprite;
 
     private void Awake()

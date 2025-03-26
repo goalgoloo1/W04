@@ -104,6 +104,15 @@ public class CameraManager : MonoBehaviour
         if (cameraMonitor == CameraMonitor.Cam4)
         {
             RoomManager.Instance.SetCamImage(4);
+            MonsterManager.Instance.slenderTimer = 0;
+            if (MonsterManager.Instance.GetMonster(5).state == MonsterState.Anomalous)
+            {
+                int n = Random.Range(0, 2);
+                if (n == 0)
+                {
+                    MonsterManager.Instance.SetCommon(5);
+                }
+            }
         }
         if (cameraMonitor == CameraMonitor.Cam5)
         {

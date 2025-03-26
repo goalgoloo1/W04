@@ -47,5 +47,7 @@ public class PuzzleManager : MonoBehaviour
     {
         Debug.Log("Reset Button");
         MonsterManager.Instance.SetCommon(6);
+        for(int i = 0; i < 6; i++)
+            RoomManager.Instance.SetCamImage(i+1);
     }
 }
