@@ -9,6 +9,7 @@ public class Reset3DTo2D : EditorWindow
         // 모든 게임 오브젝트 중 선택 가능한 것들 필터링
         GameObject[] allObjects = GameObject.FindObjectsOfType<GameObject>();
 
+
         foreach (GameObject obj in allObjects)
         {
             // X축 Position과 Rotation을 0으로 설정
