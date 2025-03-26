@@ -1129,7 +1129,7 @@ Transform:
   m_GameObject: {fileID: 405873990}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -36.97664, z: -10}
+  m_LocalPosition: {x: 0, y: -12.299999, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3638,11 +3638,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c778335e9f1d4c469b9639a560b3c98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_seconds: 595
-  m_hours: 0
-  m_isTimePaused: 0
-  secondsPerHour: 10
-  timeText: {fileID: 434221345}
+  timeDisplay: {fileID: 434221345}
 --- !u!4 &1276938730
 Transform:
   m_ObjectHideFlags: 0

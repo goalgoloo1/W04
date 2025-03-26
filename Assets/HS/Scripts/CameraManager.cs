@@ -44,7 +44,7 @@ public class CameraManager : MonoBehaviour
     }
     private void CameraMapClick() {
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit) && Input.GetKeyDown(KeyCode.Mouse0))
+        if (Physics.Raycast(ray, out hit) && Input.GetKeyDown(KeyCode.Mouse0) && !MaskPuzzle.isMaskOn)
         {
             
             //Debug.Log(hit.collider.name);
