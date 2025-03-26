@@ -4,6 +4,8 @@ using UnityEngine.EventSystems;
 
 public class RadioFrequencyPuzzle : MonoBehaviour
 {
+    //한성->민석 : ui를 생성하는 코드라서 유니티에서 수정하기보단 에디터로 코드를 수정하는 것이 좋을듯합니다.
+    //한성: ui새로 만들어서 옮기기엔 시간이 부족하니 코드 수정으로 디자인 부탁드리겠습니다!~!!
     private float minFrequency = 88.0f;
     private float maxFrequency = 108.0f;
     private float targetFrequency;
@@ -71,7 +73,7 @@ public class RadioFrequencyPuzzle : MonoBehaviour
     void CreateUI()
     {
         
-
+        //한성: 디자인 수정을 위해 여기 코드를 참고하시면됩니다.
         Canvas canvas = FindObjectOfType<Canvas>();
 
         GameObject sliderObj = new GameObject("FrequencySlider");
