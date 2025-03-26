@@ -2,18 +2,45 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public enum Direction
+{
+    Up,
+    Down,
+    Left,
+    Right
+}
+
 public class AngelLaser : MonoBehaviour
 {
     public LineRenderer lineRenderer;
-    public int maxReflections = 5;
+    public GameObject startObject;
+    private int maxReflections = 50;
     public float maxDistance = 100f;
+    public Direction startDirection = Direction.Right;
     public LayerMask reflectLayer;
+    public Action StartGameAction;
+
+    private bool isClear = false;
+
+
+    private void Start()
+    {
+        isClear = false;
+    }
+
+
+    public void GameStart()
+    {
+        StartGameAction?.Invoke();
+        isClear = false;
+    }
     
-
-
+    
     private void Update()
     {
-        DrawLaser();
+        if (!isClear)
+            DrawLaser();
     }
     
     
@@ -21,7 +48,16 @@ public class AngelLaser : MonoBehaviour
     {
         List<Vector3> points = new List<Vector3>();
         Vector3 direction = transform.right;
-        Vector3 origin = transform.localPosition;
+        if(startDirection == Direction.Right)
+            direction = transform.right;
+        else if(startDirection == Direction.Left)
+            direction = transform.right* -1;
+        else if(startDirection == Direction.Up)
+            direction = transform.up;
+        else if(startDirection == Direction.Down)
+            direction = transform.up * -1;
+        
+        Vector3 origin = startObject.transform.localPosition;
         
         points.Add(origin);
         
@@ -33,11 +69,13 @@ public class AngelLaser : MonoBehaviour
                 points.Add(hit.point);
 
                 direction = Vector2.Reflect(direction, hit.normal);
-                origin = hit.point;
+                origin = hit.point + (Vector2)direction.normalized * 0.01f;
 
                 if (hit.collider.CompareTag("Goal"))
                 {
                     Debug.Log("goal");
+                    isClear = true;
+                    MonsterManager.Instance.SetCommon(4);
                     break;
                 }
             }
