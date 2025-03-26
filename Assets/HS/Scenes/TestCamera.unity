@@ -521,7 +521,7 @@ GameObject:
   m_Component:
   - component: {fileID: 65068639}
   m_Layer: 0
-  m_Name: Puzzle1 (5)
+  m_Name: Puzzle6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1120,7 +1120,7 @@ GameObject:
   m_Component:
   - component: {fileID: 138711007}
   m_Layer: 0
-  m_Name: Button (7)
+  m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3587,7 +3587,7 @@ GameObject:
   m_Component:
   - component: {fileID: 532701037}
   m_Layer: 0
-  m_Name: Button (3)
+  m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3735,7 +3735,7 @@ GameObject:
   m_Component:
   - component: {fileID: 558952595}
   m_Layer: 0
-  m_Name: Puzzle1 (4)
+  m_Name: Puzzle5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5443,7 +5443,7 @@ GameObject:
   m_Component:
   - component: {fileID: 824669306}
   m_Layer: 0
-  m_Name: Button (5)
+  m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5703,7 +5703,7 @@ GameObject:
   - component: {fileID: 878618833}
   - component: {fileID: 878618832}
   m_Layer: 0
-  m_Name: Noise
+  m_Name: FilmGrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6066,7 +6066,7 @@ GameObject:
   m_Component:
   - component: {fileID: 958583685}
   m_Layer: 0
-  m_Name: Button (1)
+  m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6928,7 +6928,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1148913557}
   m_Layer: 0
-  m_Name: Puzzle1 (1)
+  m_Name: Puzzle2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7071,7 +7071,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1196611536}
   m_Layer: 0
-  m_Name: Puzzle1 (2)
+  m_Name: Puzzle3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7503,7 +7503,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1278350211}
   m_Layer: 0
-  m_Name: Button (6)
+  m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7651,7 +7651,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1313990727}
   m_Layer: 0
-  m_Name: Puzzle1 (3)
+  m_Name: Puzzle4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9717,7 +9717,7 @@ GameObject:
   - component: {fileID: 1682346121}
   - component: {fileID: 1682346120}
   m_Layer: 0
-  m_Name: Noise
+  m_Name: FilmGrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10034,7 +10034,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1718408278}
   m_Layer: 0
-  m_Name: Button (4)
+  m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10076,7 +10076,7 @@ GameObject:
   - component: {fileID: 1732825176}
   - component: {fileID: 1732825175}
   m_Layer: 0
-  m_Name: Noise
+  m_Name: FilmGrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
