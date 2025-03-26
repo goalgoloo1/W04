@@ -9,24 +9,25 @@ public enum MonsterState
     Critical,
     
 }
+
 public class MonsterManager : MonoBehaviour
 {
     public static MonsterManager Instance;
-    
+
     public MonsterData[] monsterData;
-    [SerializeField]
-    private Monster[] monsters; 
+    [SerializeField] private Monster[] monsters;
+
     private void Awake()
     {
         Instance = this;
     }
-    
+
     private void Start()
     {
         SetMonsterData();
     }
-    
-    
+
+
     private void Update()
     {
         MonsterTimeUpdate();
@@ -42,9 +43,10 @@ public class MonsterManager : MonoBehaviour
             ToCritical(monsters[i]);
         }
     }
-    
+
     private void ToAnomalous(Monster monster)
     {
+        if(monster.isGirl) return;
         if (monster.state == MonsterState.Common)
         {
             if (monster.time >= monster.timeToAnomalous)
@@ -54,9 +56,10 @@ public class MonsterManager : MonoBehaviour
             }
         }
     }
-    
+
     private void ToCritical(Monster monster)
     {
+        if(monster.isMask) return;
         if (monster.state == MonsterState.Anomalous)
         {
             if (monster.time >= monster.timeToCritical)
@@ -66,8 +69,8 @@ public class MonsterManager : MonoBehaviour
             }
         }
     }
-    
-    
+
+
     private void SetMonsterData()
     {
         monsters = new Monster[monsterData.Length];
@@ -84,21 +87,46 @@ public class MonsterManager : MonoBehaviour
             monsters[i].anomalousSprite = monsterData[i].anomalousSprite;
             monsters[i].criticalSprite = monsterData[i].criticalSprite;
             monsters[i].isCheckAnomalous = monsterData[i].isCheckAnomalous;
+            monsters[i].camNum = monsterData[i].camNum;
+            monsters[i].isMask = monsterData[i].isMask;
+            monsters[i].isGirl = monsterData[i].isGirl;
         }
     }
-    
+
     public void SetCommon(int num) //몬스터의 번호를 입력 받습니다 1 ~ 7
     {
-        num--;
-        if (monsters[num].state == MonsterState.Anomalous && monsters[num].isCheckAnomalous)
+        Monster mon = GetMonster(num);
+        if (mon.state == MonsterState.Anomalous && mon.isCheckAnomalous)
         {
-            monsters[num].state = MonsterState.Common;
-            monsters[num].time = 0;
-            monsters[num].isCheckAnomalous = false;
+            mon.state = MonsterState.Common;
+            mon.time = 0;
+            mon.isCheckAnomalous = false;
         }
-        
+
+    }
+
+    public Monster GetMonster(int num)
+    {
+        foreach (var data in monsters)
+        {
+            if (data.num == num)
+                return data;
+        }
+        Debug.LogWarning("Monster not found"); 
+        return null;
     }
     
+    public Monster GetMonsterByCamNum(int num)
+    {
+        foreach (var data in monsters)
+        {
+            Debug.Log(data.camNum + " "+ num);
+            if (data.camNum == num)
+                return data;
+        }
+        Debug.LogWarning("Monster not found"); 
+        return null;
+    }
 }
 
 [Serializable]
@@ -115,4 +143,9 @@ public class Monster
     public Sprite criticalSprite;
     //이상현상 관측 을 구분하는 bool
     public bool isCheckAnomalous;
+    //cam 넘버
+    public int camNum;
+    //예외처리
+    public bool isMask;
+    public bool isGirl;
 }

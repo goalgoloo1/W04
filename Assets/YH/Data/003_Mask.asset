@@ -17,7 +17,10 @@ MonoBehaviour:
   state: 0
   timeToAnomalous: 11
   timeToCritical: 11
-  commonSprite: {fileID: 0}
-  anomalousSprite: {fileID: 0}
-  criticalSprite: {fileID: 0}
+  commonSprite: {fileID: -20385004768258294, guid: b5d101d81f8c068499e034afa2156caa, type: 3}
+  anomalousSprite: {fileID: -5779955213441406958, guid: 1d16df13a78318d4a927f52865a5e553, type: 3}
+  criticalSprite: {fileID: 5464903094360406823, guid: abf41b6b788d8eb4ea6d4f204a888fd8, type: 3}
   isCheckAnomalous: 0
+  camNum: 6
+  isMask: 1
+  isGirl: 0

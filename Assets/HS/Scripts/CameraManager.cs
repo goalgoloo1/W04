@@ -75,6 +75,36 @@ public class CameraManager : MonoBehaviour
         }
 
         cameras[cameraIndex].gameObject.SetActive(true);
+
+        if (cameraMonitor == CameraMonitor.Cam1)
+        {
+            RoomManager.Instance.SetCamImage(1);
+        }
+        if (cameraMonitor == CameraMonitor.Cam2)
+        {
+            RoomManager.Instance.SetCamImage(2);
+        }
+        if (cameraMonitor == CameraMonitor.Cam3)
+        {
+            RoomManager.Instance.SetCamImage(3);
+        }
+        if (cameraMonitor == CameraMonitor.Cam4)
+        {
+            RoomManager.Instance.SetCamImage(4);
+        }
+        if (cameraMonitor == CameraMonitor.Cam5)
+        {
+            RoomManager.Instance.SetCamImage(5);
+        }
+        if (cameraMonitor == CameraMonitor.Cam6)
+        {
+            RoomManager.Instance.SetCamImage(6);
+        }
+        
     }
+    
+    
+    
+    
 
 }

@@ -14,4 +14,9 @@ public class MonsterData : ScriptableObject
     public Sprite criticalSprite;
     //이상현상 관측 을 구분하는 bool
     public bool isCheckAnomalous;
+    //cam 넘버
+    public int camNum;
+    //예외처리
+    public bool isMask;
+    public bool isGirl;
 }

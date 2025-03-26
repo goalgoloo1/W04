@@ -15,9 +15,12 @@ MonoBehaviour:
   monsterName: SCP_Slenderman
   num: 5
   state: 0
-  timeToAnomalous: 23
+  timeToAnomalous: 15
   timeToCritical: 23
-  commonSprite: {fileID: 0}
-  anomalousSprite: {fileID: 0}
+  commonSprite: {fileID: -1322449555777694907, guid: 341eb83a77e44e9409b58fc62bb6b537, type: 3}
+  anomalousSprite: {fileID: 7665089428980235283, guid: 47c5efa07bf1f1b4aa2c005b8de31213, type: 3}
   criticalSprite: {fileID: 0}
   isCheckAnomalous: 0
+  camNum: 4
+  isMask: 0
+  isGirl: 0
