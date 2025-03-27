@@ -34,8 +34,8 @@ public class Timer : MonoBehaviour
     {
         const int secondsPerHour = 100;
         m_hours = (int)m_seconds / secondsPerHour;
-        Debug.Log(m_seconds);
-        Debug.Log(m_hours);
+        //Debug.Log(m_seconds);
+        //Debug.Log(m_hours);
     }
     void StageClear()
     {
