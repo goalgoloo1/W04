@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      crying boy idle_0: 1383922592910240692
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
