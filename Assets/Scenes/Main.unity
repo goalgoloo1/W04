@@ -7311,6 +7311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cfd72e4265353d46bf924dab42aec5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraTransitionAudio: {fileID: 4782309512483893876}
   mouseClickAudio: {fileID: 6917643382179405377}
   nutsAnomalyAudio: {fileID: 6034880250001811987}
   nutsJumpscareAudio: {fileID: 6034880250001811987}
@@ -7318,7 +7319,6 @@ MonoBehaviour:
   maskJumpscareAudio: {fileID: 6917643382179405377}
   angelAnomalyAudio: {fileID: 1336907063713318643}
   angelscareAudio: {fileID: 6034880250001811987}
-  slendermanAnomalyAudio: {fileID: 8868540663576668169}
   slendermanJumpscareAudio: {fileID: 4782309512483893876}
   childAnomalyAudio: {fileID: 1224934962628637945}
   ballerinaAnomalyAudio: {fileID: 4782309512483893876}
@@ -7382,8 +7382,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 54349a556969ce549a1fbb5a8f56ba96, type: 3}
-  m_Resource: {fileID: 8300000, guid: 54349a556969ce549a1fbb5a8f56ba96, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 31907d9abc47a384aa06c46e2d4fd443, type: 3}
+  m_Resource: {fileID: 8300000, guid: 31907d9abc47a384aa06c46e2d4fd443, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

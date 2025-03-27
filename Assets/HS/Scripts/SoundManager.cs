@@ -37,4 +37,18 @@ public class SoundManager : MonoBehaviour
 
     public AudioSource ballerinaAnomalyAudio;
     public AudioSource ballerinaJumpscareAudio;
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            PlayAudio(mouseClickAudio);
+        }
+    }
+    
+    // Play audio if the AudioSource exists
+    public void PlayAudio(AudioSource audioSource)
+    {
+        audioSource.Play();
+    }
 }

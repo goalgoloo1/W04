@@ -49,6 +49,7 @@ public class CameraManager : MonoBehaviour
             
             //Debug.Log(hit.collider.name);
             if (hit.collider.name == "001") { SwitchToCamera(CameraMonitor.Cam1);
+                
                 currentCamera = 1;
             }
             if (hit.collider.name == "002") { SwitchToCamera(CameraMonitor.Cam2); currentCamera = 2;}
@@ -77,6 +78,8 @@ public class CameraManager : MonoBehaviour
     }
     public void SwitchToCamera(CameraMonitor cameraMonitor)
     {
+        SoundManager.Instance.cameraTransitionAudio.Play();
+
         int cameraIndex = (int)cameraMonitor;
         TempData.playerViewingCamera = cameraMonitor;
         //Debug.Log(TempData.playerViewingCamera + " hi");

@@ -18,7 +18,6 @@ public class GameManager : MonoBehaviour
     private bool nutsAnomalyAudioPlayed = false;
     private bool maskAnomalyAudioPlayed = false;
     private bool angelAnomalyAudioPlayed = false;
-    private bool slendermanAnomalyAudioPlayed = false;
     private bool ballerinaAnomalyAudioPlayed = false;
 
 
@@ -29,13 +28,9 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        //if (isJumpscareActive)
-        //return;
         
-        // Check for state changes from Anomalous to Common to reset audio flags
         CheckAndResetAudioFlags();
         
-        // Play anomaly audio only once per state change
         if (MonsterManager.Instance.GetMonster(1).state == MonsterState.Anomalous) { NutsAnomalousAudio(); }
         if (MonsterManager.Instance.GetMonster(3).state == MonsterState.Anomalous) { MaskAnomalousAudio(); }
         if (MonsterManager.Instance.GetMonster(4).state == MonsterState.Anomalous) { AngelAnomalousAudio(); }
@@ -61,8 +56,8 @@ public class GameManager : MonoBehaviour
         if (MonsterManager.Instance.GetMonster(4).state != MonsterState.Anomalous)
             angelAnomalyAudioPlayed = false;
             
-        if (MonsterManager.Instance.GetMonster(5).state != MonsterState.Anomalous)
-            slendermanAnomalyAudioPlayed = false;
+        //if (MonsterManager.Instance.GetMonster(5).state != MonsterState.Anomalous)
+        //    slendermanAnomalyAudioPlayed = false;
             
         if (MonsterManager.Instance.GetMonster(7).state != MonsterState.Anomalous)
             ballerinaAnomalyAudioPlayed = false;
