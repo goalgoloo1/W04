@@ -159,7 +159,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ballerinaDie_ 1_0: -4916984571562905445
+      ballerinaDie_ 1_1: 8422634673678509803
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
