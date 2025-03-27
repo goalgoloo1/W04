@@ -16,8 +16,9 @@ public class SoundManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
+
     //효과음
+    public AudioSource cameraTransitionAudio;
     public AudioSource mouseClickAudio;
 
     //한성 : 몬스터 사운드
@@ -30,7 +31,6 @@ public class SoundManager : MonoBehaviour
     public AudioSource angelAnomalyAudio;
     public AudioSource angelscareAudio;
 
-    public AudioSource slendermanAnomalyAudio;
     public AudioSource slendermanJumpscareAudio;
 
     public AudioSource childAnomalyAudio;
