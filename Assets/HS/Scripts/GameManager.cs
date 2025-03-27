@@ -15,11 +15,17 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Image slendermanJumpscareImage;
     [SerializeField] private Image ballerinaJumpscareImage;
 
+    // Flags to track audio playback
     private bool nutsAnomalyAudioPlayed = false;
     private bool maskAnomalyAudioPlayed = false;
     private bool angelAnomalyAudioPlayed = false;
     private bool ballerinaAnomalyAudioPlayed = false;
 
+    // References to active coroutines for stopping audio
+    private Coroutine nutsAnomalyCoroutine = null;
+    private Coroutine maskAnomalyCoroutine = null;
+    private Coroutine angelAnomalyCoroutine = null;
+    private Coroutine ballerinaAnomalyCoroutine = null;
 
     void Start()
     {
@@ -28,7 +34,6 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        
         CheckAndResetAudioFlags();
         
         if (MonsterManager.Instance.GetMonster(1).state == MonsterState.Anomalous) { NutsAnomalousAudio(); }
@@ -47,20 +52,45 @@ public class GameManager : MonoBehaviour
     // Check for state changes to reset audio flags
     private void CheckAndResetAudioFlags()
     {
+        // If monster state changes from Anomalous to something else, stop sound and reset flag
         if (MonsterManager.Instance.GetMonster(1).state != MonsterState.Anomalous)
+        {
+            StopAnomalyAudio(ref nutsAnomalyCoroutine, SoundManager.Instance.nutsAnomalyAudio);
             nutsAnomalyAudioPlayed = false;
+        }
             
         if (MonsterManager.Instance.GetMonster(3).state != MonsterState.Anomalous)
+        {
+            StopAnomalyAudio(ref maskAnomalyCoroutine, SoundManager.Instance.maskAnomalyAudio);
             maskAnomalyAudioPlayed = false;
+        }
             
         if (MonsterManager.Instance.GetMonster(4).state != MonsterState.Anomalous)
+        {
+            StopAnomalyAudio(ref angelAnomalyCoroutine, SoundManager.Instance.angelAnomalyAudio);
             angelAnomalyAudioPlayed = false;
-            
-        //if (MonsterManager.Instance.GetMonster(5).state != MonsterState.Anomalous)
-        //    slendermanAnomalyAudioPlayed = false;
+        }
             
         if (MonsterManager.Instance.GetMonster(7).state != MonsterState.Anomalous)
+        {
+            StopAnomalyAudio(ref ballerinaAnomalyCoroutine, SoundManager.Instance.ballerinaAnomalyAudio);
             ballerinaAnomalyAudioPlayed = false;
+        }
+    }
+
+    // Helper method to stop an audio source and clear its coroutine
+    private void StopAnomalyAudio(ref Coroutine coroutine, AudioSource audioSource)
+    {
+        if (coroutine != null)
+        {
+            StopCoroutine(coroutine);
+            coroutine = null;
+        }
+        
+        if (audioSource != null && audioSource.isPlaying)
+        {
+            audioSource.Stop();
+        }
     }
 
     void GameOver()
@@ -93,51 +123,64 @@ public class GameManager : MonoBehaviour
 
     void NutsAnomalousAudio()
     {
-        if (!nutsAnomalyAudioPlayed)
+        if (!nutsAnomalyAudioPlayed && SoundManager.Instance != null)
         {
             Debug.Log("Nuts 아노말리");
-            SoundManager.Instance.nutsAnomalyAudio.Play();
+            // Stop previous coroutine if it exists
+            StopAnomalyAudio(ref nutsAnomalyCoroutine, SoundManager.Instance.nutsAnomalyAudio);
+            // Start new coroutine to play for exactly 2 seconds
+            nutsAnomalyCoroutine = StartCoroutine(PlayAudioFor2Seconds(SoundManager.Instance.nutsAnomalyAudio));
             nutsAnomalyAudioPlayed = true;
         }
     }
 
     void MaskAnomalousAudio()
     {
-        if (!maskAnomalyAudioPlayed)
+        if (!maskAnomalyAudioPlayed && SoundManager.Instance != null)
         {
             Debug.Log("Mask 아노말리");
-            SoundManager.Instance.maskAnomalyAudio.Play();
+            // Stop previous coroutine if it exists
+            StopAnomalyAudio(ref maskAnomalyCoroutine, SoundManager.Instance.maskAnomalyAudio);
+            // Start new coroutine to play for exactly 2 seconds
+            maskAnomalyCoroutine = StartCoroutine(PlayAudioFor2Seconds(SoundManager.Instance.maskAnomalyAudio));
             maskAnomalyAudioPlayed = true;
         }
     }
 
     void AngelAnomalousAudio()
     {
-        if (!angelAnomalyAudioPlayed)
+        if (!angelAnomalyAudioPlayed && SoundManager.Instance != null)
         {
             Debug.Log("Angel 아노말리");
-            SoundManager.Instance.angelAnomalyAudio.Play();
+            // Stop previous coroutine if it exists
+            StopAnomalyAudio(ref angelAnomalyCoroutine, SoundManager.Instance.angelAnomalyAudio);
+            // Start new coroutine to play for exactly 2 seconds
+            angelAnomalyCoroutine = StartCoroutine(PlayAudioFor2Seconds(SoundManager.Instance.angelAnomalyAudio));
             angelAnomalyAudioPlayed = true;
         }
     }
 
-    //void SlendermanAnomalousAudio()
-    //{
-    //    if (!slendermanAnomalyAudioPlayed)
-    //    {
-    //        Debug.Log("Slenderman 아노말리");
-    //        SoundManager.Instance.slendermanAnomalyAudio.Play();
-    //        slendermanAnomalyAudioPlayed = true;
-    //    }
-    //}
-
     void BallerinaAnomalousAudio()
     {
-        if (!ballerinaAnomalyAudioPlayed)
+        if (!ballerinaAnomalyAudioPlayed && SoundManager.Instance != null)
         {
             Debug.Log("Ballerina 아노말리");
-            SoundManager.Instance.ballerinaAnomalyAudio.Play();
+            // Stop previous coroutine if it exists
+            StopAnomalyAudio(ref ballerinaAnomalyCoroutine, SoundManager.Instance.ballerinaAnomalyAudio);
+            // Start new coroutine to play for exactly 2 seconds
+            ballerinaAnomalyCoroutine = StartCoroutine(PlayAudioFor2Seconds(SoundManager.Instance.ballerinaAnomalyAudio));
             ballerinaAnomalyAudioPlayed = true;
+        }
+    }
+
+    // Coroutine to play audio for exactly 2 seconds
+    IEnumerator PlayAudioFor2Seconds(AudioSource audioSource)
+    {
+        if (audioSource != null)
+        {
+            audioSource.Play();
+            yield return new WaitForSeconds(2f);
+            audioSource.Stop();
         }
     }
 
@@ -178,10 +221,9 @@ public class GameManager : MonoBehaviour
 
     void ShowJumpscareOverlay(Image jumpscareImage)
     {
-        //if (isJumpscareActive || jumpscareImage == null || jumpscareCanvas == null)
-        //    return;
+        // Stop all anomaly audio when jumpscare happens
+        StopAllAnomalyAudios();
 
-        //isJumpscareActive = true;
         CameraManager cameraManager = FindObjectOfType<CameraManager>();
         cameraManager.SwitchToCamera(CameraMonitor.Office);
         jumpscareCanvas.enabled = true;
@@ -189,11 +231,19 @@ public class GameManager : MonoBehaviour
         StartCoroutine(DelayedGameOver());
     }
 
+    // Helper method to stop all anomaly audio sources
+    private void StopAllAnomalyAudios()
+    {
+        StopAnomalyAudio(ref nutsAnomalyCoroutine, SoundManager.Instance.nutsAnomalyAudio);
+        StopAnomalyAudio(ref maskAnomalyCoroutine, SoundManager.Instance.maskAnomalyAudio);
+        StopAnomalyAudio(ref angelAnomalyCoroutine, SoundManager.Instance.angelAnomalyAudio);
+        StopAnomalyAudio(ref ballerinaAnomalyCoroutine, SoundManager.Instance.ballerinaAnomalyAudio);
+    }
+
     IEnumerator DelayedGameOver()
     {
         yield return new WaitForSeconds(2f);
         DeactivateAllJumpscares();
         GameOver();
-        //isJumpscareActive = false;
     }
 }
