@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -20,8 +19,8 @@ public class AngelGameController : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
-            StartGame();
+        //if(Input.GetKeyDown(KeyCode.Space))
+        //    StartGame();
     }
 
     public void StartGame()

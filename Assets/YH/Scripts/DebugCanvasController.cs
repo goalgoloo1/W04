@@ -8,7 +8,7 @@ public class DebugCanvasController : MonoBehaviour
 
     private void Start()
     {
-        OnCanvas();
+        OffCanvas();
         canvasGroup.blocksRaycasts = false;
     }
     

@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using static CameraManager;
 
 public class RadioFrequencyPuzzle : MonoBehaviour
 {
@@ -40,6 +41,7 @@ public class RadioFrequencyPuzzle : MonoBehaviour
                 puzzleSolved = true;
                 statusText.text = "Puzzle Solved!";
                 Debug.Log("Puzzle Solved! Balerina set common state");
+                CameraManager.Instance.SwitchToCamera(CameraMonitor.Office); CameraManager.Instance.currentCamera = 0;
                 MonsterManager.Instance.SetCommon(7);
                 StartCoroutine(ResetAfterDelay()); // Start the reset process
             }

@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using static CameraManager;
 
 public class WiringPuzzleManager : MonoBehaviour
 {
@@ -328,6 +329,7 @@ public class WiringPuzzleManager : MonoBehaviour
         }
 
         Debug.Log("Puzzle completed! 땅콩 Set Common 상태.");
+        CameraManager.Instance.SwitchToCamera(CameraMonitor.Office); CameraManager.Instance.currentCamera = 0;
         MonsterManager.Instance.SetCommon(1);
 
         // Trigger the completion event
