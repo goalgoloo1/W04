@@ -1175,7 +1175,7 @@ Transform:
   m_GameObject: {fileID: 405873990}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -12.299999, z: -10}
+  m_LocalPosition: {x: 0, y: -51.058052, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5183,6 +5183,7 @@ Transform:
   - {fileID: 689941033}
   - {fileID: 1863603956}
   - {fileID: 1052530456}
+  - {fileID: 1970194213}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1818066096 stripped
@@ -5609,6 +5610,70 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7314425869872959092, guid: 324a5d15a494688438509103331a35cf, type: 3}
   m_PrefabInstance: {fileID: 1386677852}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1970194212
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1970194213}
+  - component: {fileID: 1970194214}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1970194213
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970194212}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -60.49486, y: -8.735563, z: -0.025573596}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1772033739}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1970194214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970194212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cfd72e4265353d46bf924dab42aec5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraAudio: {fileID: 0}
+  mouseClickAudio: {fileID: 0}
+  nutsAnomalyAudio: {fileID: 0}
+  nutsJumpscareAudio: {fileID: 0}
+  nutsMusic: {fileID: 0}
+  maskAnomalyAudio: {fileID: 0}
+  maskJumpscareAudio: {fileID: 0}
+  maskMusic: {fileID: 0}
+  angelAnomalyAudio: {fileID: 0}
+  angelscareAudio: {fileID: 0}
+  angelMusic: {fileID: 0}
+  slendermanAnomalyAudio: {fileID: 0}
+  slendermanJumpscareAudio: {fileID: 0}
+  slendermanMusic: {fileID: 0}
+  childAnomalyAudio: {fileID: 0}
+  childJumpscareAudio: {fileID: 0}
+  childMusic: {fileID: 0}
+  ballerinaAnomalyudio: {fileID: 0}
+  ballerinaJumpscareAudio: {fileID: 0}
+  ballerinaMusic: {fileID: 0}
 --- !u!1001 &1976751500
 PrefabInstance:
   m_ObjectHideFlags: 0
