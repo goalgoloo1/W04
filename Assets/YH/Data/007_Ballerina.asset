@@ -15,7 +15,7 @@ MonoBehaviour:
   monsterName: SCP_Ballerina
   num: 7
   state: 0
-  timeToAnomalous: 24
+  timeToAnomalous: 62
   timeToCritical: 22
   commonSprite: {fileID: 6105774752315034986, guid: 854fb88cb0111484db8b65886634030e, type: 3}
   anomalousSprite: {fileID: -3877972879424258220, guid: 0bc4cb6f4f4b41048b16a814587176cf, type: 3}

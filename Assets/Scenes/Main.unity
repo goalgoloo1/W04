@@ -1325,7 +1325,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 4.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1350,7 +1350,7 @@ Transform:
   m_GameObject: {fileID: 405873990}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: -12.299999, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5812,7 +5812,7 @@ GameObject:
   - component: {fileID: 1659006246}
   - component: {fileID: 1659006247}
   m_Layer: 0
-  m_Name: testsound
+  m_Name: BGM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5843,12 +5843,12 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 54349a556969ce549a1fbb5a8f56ba96, type: 3}
-  m_Resource: {fileID: 8300000, guid: 54349a556969ce549a1fbb5a8f56ba96, type: 3}
-  m_PlayOnAwake: 0
+  m_audioClip: {fileID: 8300000, guid: 09d6e8187665b25498e67d78fcab468e, type: 3}
+  m_Resource: {fileID: 8300000, guid: 09d6e8187665b25498e67d78fcab468e, type: 3}
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -7084,6 +7084,10 @@ PrefabInstance:
       value: ChildAnomaly
       objectReference: {fileID: 0}
     - target: {fileID: 5386742405709306031, guid: 1c0af3741c7c9c0439086bece44f7e90, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5386742405709306031, guid: 1c0af3741c7c9c0439086bece44f7e90, type: 3}
       propertyPath: MinDistance
       value: 495.0495
       objectReference: {fileID: 0}
@@ -7230,6 +7234,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 19413738880150135}
     m_Modifications:
+    - target: {fileID: 3781742788961786835, guid: 88903981330552648a1184863d164420, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8166805351435415795, guid: 88903981330552648a1184863d164420, type: 3}
       propertyPath: m_Name
       value: AngelAnomaly
@@ -7290,6 +7298,10 @@ PrefabInstance:
     - target: {fileID: 561071905153193388, guid: 5a862f93b2411b04ea902cf22f1e63da, type: 3}
       propertyPath: m_Name
       value: AngelJump
+      objectReference: {fileID: 0}
+    - target: {fileID: 2773391328707827502, guid: 5a862f93b2411b04ea902cf22f1e63da, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2773391328707827502, guid: 5a862f93b2411b04ea902cf22f1e63da, type: 3}
       propertyPath: MinDistance
@@ -7441,6 +7453,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5249033583616805121, guid: 1036de73b4f33c3489d8b01875df8f2c, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5249033583616805121, guid: 1036de73b4f33c3489d8b01875df8f2c, type: 3}
       propertyPath: MinDistance
       value: 495.0495
       objectReference: {fileID: 0}
@@ -7479,7 +7495,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cfd72e4265353d46bf924dab42aec5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraTransitionAudio: {fileID: 6917643382179405377}
   mouseClickAudio: {fileID: 6917643382179405377}
   nutsAnomalyAudio: {fileID: 6034880250001811987}
   nutsJumpscareAudio: {fileID: 7006966063921603600}
@@ -7542,6 +7557,10 @@ PrefabInstance:
     - target: {fileID: 4530952459498245984, guid: 113962d9200e48e48b2cc719a26e898d, type: 3}
       propertyPath: m_Name
       value: NutsAnomaly
+      objectReference: {fileID: 0}
+    - target: {fileID: 6184970295156527139, guid: 113962d9200e48e48b2cc719a26e898d, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6184970295156527139, guid: 113962d9200e48e48b2cc719a26e898d, type: 3}
       propertyPath: rolloffMode
@@ -7650,6 +7669,10 @@ PrefabInstance:
     - target: {fileID: 1743072586079466413, guid: a9aa82353e162d647b354455ce1a2f67, type: 3}
       propertyPath: m_Name
       value: MaskJump
+      objectReference: {fileID: 0}
+    - target: {fileID: 5060622231845602282, guid: a9aa82353e162d647b354455ce1a2f67, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5060622231845602282, guid: a9aa82353e162d647b354455ce1a2f67, type: 3}
       propertyPath: m_Resource
@@ -7925,6 +7948,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5566210611366109650, guid: f183f9bf38c6f0d4082c95ffcd1ed0cf, type: 3}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5566210611366109650, guid: f183f9bf38c6f0d4082c95ffcd1ed0cf, type: 3}
       propertyPath: MinDistance
       value: 495.0495
       objectReference: {fileID: 0}
@@ -8016,10 +8043,10 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 8e4b6943ca712fa48b14ac09418c666f, type: 3}
-  m_Resource: {fileID: 8300000, guid: 8e4b6943ca712fa48b14ac09418c666f, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 86d9a6bfa015ece4e8aef11aa745cee4, type: 3}
+  m_Resource: {fileID: 8300000, guid: 86d9a6bfa015ece4e8aef11aa745cee4, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -8114,6 +8141,10 @@ PrefabInstance:
     - target: {fileID: 1507932373791713329, guid: 057e6b706d1f3cb4b962a6612d34afc5, type: 3}
       propertyPath: m_Pitch
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1507932373791713329, guid: 057e6b706d1f3cb4b962a6612d34afc5, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1507932373791713329, guid: 057e6b706d1f3cb4b962a6612d34afc5, type: 3}
       propertyPath: MinDistance
@@ -8373,6 +8404,10 @@ PrefabInstance:
     - target: {fileID: 1486847257752354352, guid: bcbe3ece77c77a84f8d6f8abae260251, type: 3}
       propertyPath: m_Name
       value: BallerinaAnomaly
+      objectReference: {fileID: 0}
+    - target: {fileID: 1973613028229379573, guid: bcbe3ece77c77a84f8d6f8abae260251, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

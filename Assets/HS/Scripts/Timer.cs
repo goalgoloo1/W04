@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
-    float m_seconds = 96f;
+    float m_seconds = 46f;
     int m_hours = 0;
     //bool m_isTimePaused = false;
 
@@ -33,7 +33,7 @@ public class Timer : MonoBehaviour
     }
     void PrintHours()
     {
-        const int secondsPerHour = 100;
+        const int secondsPerHour = 50;
         m_hours = (int)m_seconds / secondsPerHour;
         //Debug.Log(m_seconds);
         //Debug.Log(m_hours);

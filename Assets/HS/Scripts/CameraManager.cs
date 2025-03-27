@@ -78,7 +78,6 @@ public class CameraManager : MonoBehaviour
     }
     public void SwitchToCamera(CameraMonitor cameraMonitor)
     {
-        SoundManager.Instance.cameraTransitionAudio.Play();
 
         int cameraIndex = (int)cameraMonitor;
         TempData.playerViewingCamera = cameraMonitor;

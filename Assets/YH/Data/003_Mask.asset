@@ -15,7 +15,7 @@ MonoBehaviour:
   monsterName: SCP_Mask
   num: 3
   state: 0
-  timeToAnomalous: 19
+  timeToAnomalous: 39
   timeToCritical: 25
   commonSprite: {fileID: -20385004768258294, guid: b5d101d81f8c068499e034afa2156caa, type: 3}
   anomalousSprite: {fileID: -5779955213441406958, guid: 1d16df13a78318d4a927f52865a5e553, type: 3}
