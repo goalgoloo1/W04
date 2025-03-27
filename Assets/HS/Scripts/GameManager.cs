@@ -13,14 +13,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Image slendermanJumpscareImage;
     [SerializeField] private Image ballerinaJumpscareImage;
 
-    // Flags to track if the anomaly audio has been played
     private bool nutsAnomalyAudioPlayed = false;
     private bool maskAnomalyAudioPlayed = false;
     private bool angelAnomalyAudioPlayed = false;
     private bool slendermanAnomalyAudioPlayed = false;
     private bool ballerinaAnomalyAudioPlayed = false;
 
-                                            //private bool isJumpscareActive = false;
 
     void Start()
     {
@@ -39,7 +37,7 @@ public class GameManager : MonoBehaviour
         if (MonsterManager.Instance.GetMonster(1).state == MonsterState.Anomalous) { NutsAnomalousAudio(); }
         if (MonsterManager.Instance.GetMonster(3).state == MonsterState.Anomalous) { MaskAnomalousAudio(); }
         if (MonsterManager.Instance.GetMonster(4).state == MonsterState.Anomalous) { AngelAnomalousAudio(); }
-        if (MonsterManager.Instance.GetMonster(5).state == MonsterState.Anomalous) { SlendermanAnomalousAudio(); }
+        //if (MonsterManager.Instance.GetMonster(5).state == MonsterState.Anomalous) { SlendermanAnomalousAudio(); }
         if (MonsterManager.Instance.GetMonster(7).state == MonsterState.Anomalous) { BallerinaAnomalousAudio(); }
 
         if (MonsterManager.Instance.GetMonster(1).state == MonsterState.Critical) { NutsJumpscare(); }
@@ -97,7 +95,6 @@ public class GameManager : MonoBehaviour
 
     void NutsAnomalousAudio()
     {
-        // Only play the audio if it hasn't been played yet for this anomaly state
         if (!nutsAnomalyAudioPlayed)
         {
             Debug.Log("Nuts 아노말리");
@@ -108,7 +105,6 @@ public class GameManager : MonoBehaviour
 
     void MaskAnomalousAudio()
     {
-        // Only play the audio if it hasn't been played yet for this anomaly state
         if (!maskAnomalyAudioPlayed)
         {
             Debug.Log("Mask 아노말리");
@@ -119,7 +115,6 @@ public class GameManager : MonoBehaviour
 
     void AngelAnomalousAudio()
     {
-        // Only play the audio if it hasn't been played yet for this anomaly state
         if (!angelAnomalyAudioPlayed)
         {
             Debug.Log("Angel 아노말리");
@@ -128,28 +123,21 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void SlendermanAnomalousAudio()
-    {
-        // Only play the audio if it hasn't been played yet for this anomaly state
-        if (!slendermanAnomalyAudioPlayed)
-        {
-            Debug.Log("Slenderman 아노말리");
-            SoundManager.Instance.slendermanAnomalyAudio.Play();
-            slendermanAnomalyAudioPlayed = true;
-        }
-    }
+    //void SlendermanAnomalousAudio()
+    //{
+    //    if (!slendermanAnomalyAudioPlayed)
+    //    {
+    //        Debug.Log("Slenderman 아노말리");
+    //        SoundManager.Instance.slendermanAnomalyAudio.Play();
+    //        slendermanAnomalyAudioPlayed = true;
+    //    }
+    //}
 
     void BallerinaAnomalousAudio()
     {
-        // Only play the audio if it hasn't been played yet for this anomaly state
         if (!ballerinaAnomalyAudioPlayed)
         {
             Debug.Log("Ballerina 아노말리");
-            if (SoundManager.Instance == null)
-            {
-                Debug.LogError("SoundManager instance is null");
-                return;
-            }
             SoundManager.Instance.ballerinaAnomalyAudio.Play();
             ballerinaAnomalyAudioPlayed = true;
         }
@@ -158,30 +146,35 @@ public class GameManager : MonoBehaviour
     void NutsJumpscare()
     {
         Debug.Log("Nuts한테 쥬금");
+        SoundManager.Instance.nutsJumpscareAudio.Play();
         ShowJumpscareOverlay(nutsJumpscareImage);
     }
 
     void MaskJumpscare()
     {
         Debug.Log("Mask한테 쥬금");
+        SoundManager.Instance.maskJumpscareAudio.Play();
         ShowJumpscareOverlay(maskJumpscareImage);
     }
 
     void AngelJumpscare()
     {
         Debug.Log("Angel한테 쥬금");
+        SoundManager.Instance.slendermanJumpscareAudio.Play();
         ShowJumpscareOverlay(angelJumpscareImage);
     }
 
     void SlendermanJumpscare()
     {
         Debug.Log("Slenderman한테 쥬금");
+        SoundManager.Instance.slendermanJumpscareAudio.Play();
         ShowJumpscareOverlay(slendermanJumpscareImage);
     }
 
     void BallerinaJumpscare()
     {
         Debug.Log("Ballerina한테 쥬금");
+        SoundManager.Instance.ballerinaJumpscareAudio.Play();
         ShowJumpscareOverlay(ballerinaJumpscareImage);
     }
 
