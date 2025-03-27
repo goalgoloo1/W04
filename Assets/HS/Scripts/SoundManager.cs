@@ -18,7 +18,7 @@ public class SoundManager : MonoBehaviour
     }
 
     //효과음
-    public AudioSource cameraTransition;
+    public AudioSource cameraTransitionAudio;
     public AudioSource mouseClickAudio;
 
     //한성 : 몬스터 사운드
