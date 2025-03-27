@@ -15,12 +15,12 @@ MonoBehaviour:
   monsterName: SCP_AngelStatue
   num: 4
   state: 0
-  timeToAnomalous: 23.6
-  timeToCritical: 23
+  timeToAnomalous: 44
+  timeToCritical: 44
   commonSprite: {fileID: -4503283239885661415, guid: 4a5f68de46eca7e449183b8c08783a8f, type: 3}
   anomalousSprite: {fileID: -350187334468808206, guid: a76add8bc98795447bb4c860314f8017, type: 3}
   criticalSprite: {fileID: 7612751835516149344, guid: e61a6b4d58f2d444e83ebbb7506289c9, type: 3}
   isCheckAnomalous: 0
   camNum: 5
-  isMask: 0
+  isSlender: 0
   isGirl: 0

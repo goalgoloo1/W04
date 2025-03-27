@@ -10,7 +10,7 @@ public class MaskPuzzle : MonoBehaviour
     private PlayableDirector pd;
     [SerializeField]
     private float time; // 착용하고 있는 시간
-    private float maxTime = 1; // 클리어 되는 시간
+    private float maxTime = 0.1f; // 클리어 되는 시간
     public static bool isMaskOn;
     private bool isPlaying;
     public TimelineAsset MaskOn;
