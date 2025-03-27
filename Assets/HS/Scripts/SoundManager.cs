@@ -51,4 +51,22 @@ public class SoundManager : MonoBehaviour
     {
         audioSource.Play();
     }
+    public void StopAllAudio()
+    {
+        if (nutsAnomalyAudio != null && nutsAnomalyAudio.isPlaying) nutsAnomalyAudio.Stop();
+        if (nutsJumpscareAudio != null && nutsJumpscareAudio.isPlaying) nutsJumpscareAudio.Stop();
+
+        if (maskAnomalyAudio != null && maskAnomalyAudio.isPlaying) maskAnomalyAudio.Stop();
+        if (maskJumpscareAudio != null && maskJumpscareAudio.isPlaying) maskJumpscareAudio.Stop();
+
+        if (angelAnomalyAudio != null && angelAnomalyAudio.isPlaying) angelAnomalyAudio.Stop();
+        if (angelscareAudio != null && angelscareAudio.isPlaying) angelscareAudio.Stop();
+
+        if (slendermanJumpscareAudio != null && slendermanJumpscareAudio.isPlaying) slendermanJumpscareAudio.Stop();
+
+        if (childAnomalyAudio != null && childAnomalyAudio.isPlaying) childAnomalyAudio.Stop();
+
+        if (ballerinaAnomalyAudio != null && ballerinaAnomalyAudio.isPlaying) ballerinaAnomalyAudio.Stop();
+        if (ballerinaJumpscareAudio != null && ballerinaJumpscareAudio.isPlaying) ballerinaJumpscareAudio.Stop();
+    }
 }
