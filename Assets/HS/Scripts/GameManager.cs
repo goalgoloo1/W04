@@ -13,7 +13,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Image slendermanJumpscareImage;
     [SerializeField] private Image ballerinaJumpscareImage;
 
-    //private bool isJumpscareActive = false;
+    // Flags to track if the anomaly audio has been played
+    private bool nutsAnomalyAudioPlayed = false;
+    private bool maskAnomalyAudioPlayed = false;
+    private bool angelAnomalyAudioPlayed = false;
+    private bool slendermanAnomalyAudioPlayed = false;
+    private bool ballerinaAnomalyAudioPlayed = false;
+
+                                            //private bool isJumpscareActive = false;
 
     void Start()
     {
@@ -23,12 +30,42 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         //if (isJumpscareActive)
-            //return;
+        //return;
+        
+        // Check for state changes from Anomalous to Common to reset audio flags
+        CheckAndResetAudioFlags();
+        
+        // Play anomaly audio only once per state change
+        if (MonsterManager.Instance.GetMonster(1).state == MonsterState.Anomalous) { NutsAnomalousAudio(); }
+        if (MonsterManager.Instance.GetMonster(3).state == MonsterState.Anomalous) { MaskAnomalousAudio(); }
+        if (MonsterManager.Instance.GetMonster(4).state == MonsterState.Anomalous) { AngelAnomalousAudio(); }
+        if (MonsterManager.Instance.GetMonster(5).state == MonsterState.Anomalous) { SlendermanAnomalousAudio(); }
+        if (MonsterManager.Instance.GetMonster(7).state == MonsterState.Anomalous) { BallerinaAnomalousAudio(); }
+
         if (MonsterManager.Instance.GetMonster(1).state == MonsterState.Critical) { NutsJumpscare(); }
         if (MonsterManager.Instance.GetMonster(3).state == MonsterState.Critical) { MaskJumpscare(); }
         if (MonsterManager.Instance.GetMonster(4).state == MonsterState.Critical) { AngelJumpscare(); }
         if (MonsterManager.Instance.GetMonster(5).state == MonsterState.Critical) { SlendermanJumpscare(); }
         if (MonsterManager.Instance.GetMonster(7).state == MonsterState.Critical) { BallerinaJumpscare(); }
+    }
+
+    // Check for state changes to reset audio flags
+    private void CheckAndResetAudioFlags()
+    {
+        if (MonsterManager.Instance.GetMonster(1).state != MonsterState.Anomalous)
+            nutsAnomalyAudioPlayed = false;
+            
+        if (MonsterManager.Instance.GetMonster(3).state != MonsterState.Anomalous)
+            maskAnomalyAudioPlayed = false;
+            
+        if (MonsterManager.Instance.GetMonster(4).state != MonsterState.Anomalous)
+            angelAnomalyAudioPlayed = false;
+            
+        if (MonsterManager.Instance.GetMonster(5).state != MonsterState.Anomalous)
+            slendermanAnomalyAudioPlayed = false;
+            
+        if (MonsterManager.Instance.GetMonster(7).state != MonsterState.Anomalous)
+            ballerinaAnomalyAudioPlayed = false;
     }
 
     void GameOver()
@@ -56,6 +93,66 @@ public class GameManager : MonoBehaviour
 
         if (ballerinaJumpscareImage != null)
             ballerinaJumpscareImage.enabled = false;
+    }
+
+    void NutsAnomalousAudio()
+    {
+        // Only play the audio if it hasn't been played yet for this anomaly state
+        if (!nutsAnomalyAudioPlayed)
+        {
+            Debug.Log("Nuts 아노말리");
+            SoundManager.Instance.nutsAnomalyAudio.Play();
+            nutsAnomalyAudioPlayed = true;
+        }
+    }
+
+    void MaskAnomalousAudio()
+    {
+        // Only play the audio if it hasn't been played yet for this anomaly state
+        if (!maskAnomalyAudioPlayed)
+        {
+            Debug.Log("Mask 아노말리");
+            SoundManager.Instance.maskAnomalyAudio.Play();
+            maskAnomalyAudioPlayed = true;
+        }
+    }
+
+    void AngelAnomalousAudio()
+    {
+        // Only play the audio if it hasn't been played yet for this anomaly state
+        if (!angelAnomalyAudioPlayed)
+        {
+            Debug.Log("Angel 아노말리");
+            SoundManager.Instance.angelAnomalyAudio.Play();
+            angelAnomalyAudioPlayed = true;
+        }
+    }
+
+    void SlendermanAnomalousAudio()
+    {
+        // Only play the audio if it hasn't been played yet for this anomaly state
+        if (!slendermanAnomalyAudioPlayed)
+        {
+            Debug.Log("Slenderman 아노말리");
+            SoundManager.Instance.slendermanAnomalyAudio.Play();
+            slendermanAnomalyAudioPlayed = true;
+        }
+    }
+
+    void BallerinaAnomalousAudio()
+    {
+        // Only play the audio if it hasn't been played yet for this anomaly state
+        if (!ballerinaAnomalyAudioPlayed)
+        {
+            Debug.Log("Ballerina 아노말리");
+            if (SoundManager.Instance == null)
+            {
+                Debug.LogError("SoundManager instance is null");
+                return;
+            }
+            SoundManager.Instance.ballerinaAnomalyAudio.Play();
+            ballerinaAnomalyAudioPlayed = true;
+        }
     }
 
     void NutsJumpscare()

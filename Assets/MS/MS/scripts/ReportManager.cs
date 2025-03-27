@@ -1,50 +1,52 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ReportManager : MonoBehaviour
 {
     [SerializeField] GameObject[] report;
+    [SerializeField] GameObject leftButton;
+    [SerializeField] GameObject rightButton;
 
     private int currentIndex = 0;
 
     void Start()
     {
-        // 모든 이미지 비활성화
+        // 모든 리포트 비활성화
         foreach (GameObject r in report)
-        {
             r.SetActive(false);
-        }
 
-        // 첫 번째 이미지만 활성화
+        // 첫 번째 리포트만 표시
         if (report.Length > 0)
             report[0].SetActive(true);
+
+        UpdateButtonVisibility();
     }
 
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0)) // 마우스 왼쪽 클릭
-        {
-            ShowNextImage();
-        }
-    }
-
-    void ShowNextImage()
+    public void OnClickNext()
     {
         if (currentIndex < report.Length - 1)
         {
-            // 현재 이미지 비활성화
             report[currentIndex].SetActive(false);
             currentIndex++;
-            // 다음 이미지 활성화
             report[currentIndex].SetActive(true);
+            UpdateButtonVisibility();
         }
-        // 원하면 아래 주석 해제해서 마지막 다음에 처음으로 돌아가게도 가능!
-        
-        else
+    }
+
+    public void OnClickPrevious()
+    {
+        if (currentIndex > 0)
         {
             report[currentIndex].SetActive(false);
-            currentIndex = 0;
+            currentIndex--;
             report[currentIndex].SetActive(true);
+            UpdateButtonVisibility();
         }
-        
+    }
+
+    void UpdateButtonVisibility()
+    {
+        leftButton.SetActive(currentIndex > 0);
+        rightButton.SetActive(currentIndex < report.Length - 1);
     }
 }
