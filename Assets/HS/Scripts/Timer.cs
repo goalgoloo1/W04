@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
@@ -41,6 +42,7 @@ public class Timer : MonoBehaviour
     {
         if (m_hours == 6)
         {
+            SceneManager.LoadScene("ClearScene");
             Debug.Log("Stage Clear! , Clear.Scene 로드");
         }
     }

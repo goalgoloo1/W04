@@ -21,3 +21,6 @@ MonoBehaviour:
   anomalousSprite: {fileID: 0}
   criticalSprite: {fileID: 0}
   isCheckAnomalous: 0
+  camNum: 0
+  isSlender: 0
+  isGirl: 0
