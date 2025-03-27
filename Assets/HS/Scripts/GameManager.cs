@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         DeactivateAllJumpscares();
+        Screen.SetResolution(1920, 1080, true);
     }
 
     void Update()
