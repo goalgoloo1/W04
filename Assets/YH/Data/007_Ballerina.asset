@@ -22,5 +22,5 @@ MonoBehaviour:
   criticalSprite: {fileID: 41459653076463896, guid: 53e76dea3b8f1764cb4bc782e30165ae, type: 3}
   isCheckAnomalous: 0
   camNum: 2
-  isMask: 0
+  isSlender: 0
   isGirl: 0
