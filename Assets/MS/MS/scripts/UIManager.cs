@@ -34,7 +34,7 @@ public class UIManager : MonoBehaviour
     }
     public void startGameScene()
     {
-        SceneManager.LoadScene("OpeningScene");
+        SceneManager.LoadScene("Main");
     }
     public void menuScene()
     {
