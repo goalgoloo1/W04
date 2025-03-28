@@ -92,7 +92,7 @@ public class AngelLaser : MonoBehaviour
                 if (hit.collider.CompareTag("Goal"))
                 {
                     print("Puzzle completed! 석상 Set Common 상태.");
-                    CameraManager.Instance.SwitchToCamera(CameraMonitor.Office); CameraManager.Instance.currentCamera = 0;
+                    CutChangeManager.Instance.ToOfficePlayCut();
                     MonsterManager.Instance.SetCommon(4);
 
                     isClear = true;

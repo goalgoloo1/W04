@@ -4,11 +4,14 @@ using UnityEngine.Rendering.Universal;
 
 public class Peanut : MonoBehaviour
 {
-    public Light2D light;
+    public Light2D peanutLight;
     public float timer = 0;
     public float maxTime = 0.1f;
     
-    
+    private void Start()
+    {
+        peanutLight = GetComponentInChildren<Light2D>();
+    }
     
     private void Update()
     {
@@ -17,14 +20,14 @@ public class Peanut : MonoBehaviour
             timer += Time.deltaTime;
             if (timer >= maxTime)
             {
-                if (light.intensity == 200f)
+                if (peanutLight.intensity == 200f)
                 {
-                    light.intensity = 0;
+                    peanutLight.intensity = 0;
                     maxTime = Random.Range(0.05f, 0.3f);
                 }
-                else if(light.intensity == 0)
+                else if(peanutLight.intensity == 0)
                 {
-                    light.intensity = 200f;
+                    peanutLight.intensity = 200f;
                     maxTime = Random.Range(0.05f, 0.3f);
                 }
                 timer = 0;
@@ -32,7 +35,7 @@ public class Peanut : MonoBehaviour
         }
         else
         {
-            light.intensity = 200f;
+            peanutLight.intensity = 200f;
         }
     }
 }
