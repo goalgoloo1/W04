@@ -8,9 +8,15 @@ public class FadingWarning : MonoBehaviour
     private Tween m_fadeTween;
     void Start()
     {
-        StartCoroutine(FadeWarning());
+        FadeIn(1f);
     }
-
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            StartCoroutine(FadeWarning());
+        }
+    }
     public void FadeIn(float duration)
     {
         Fade(1f, duration, () => 
@@ -37,10 +43,8 @@ public class FadingWarning : MonoBehaviour
     }
     IEnumerator FadeWarning()
     {
-        FadeIn(1f);
-        yield return new WaitForSeconds(3f);
         FadeOut(0.3f);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.8f);
         UnityEngine.SceneManagement.SceneManager.LoadScene("StartScene");
 
     }
