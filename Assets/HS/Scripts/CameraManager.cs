@@ -4,6 +4,7 @@ using Unity.Cinemachine;
 public class CameraManager : MonoBehaviour
 {
     public static CameraManager Instance;
+    public bool isClick = true;
     public enum CameraMonitor
     {
         Office,
@@ -42,7 +43,7 @@ public class CameraManager : MonoBehaviour
         CameraMapKeyBoard();
     }
     private void CameraMapClick() {
-        if(PaperController.Instance.isPaper) return;
+        if(PaperController.Instance.isPaper || !isClick) return;
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit) && Input.GetKeyDown(KeyCode.Mouse0) && !MaskPuzzle.isMaskOn && MaskPuzzle.isPlaying == false)
         {
@@ -61,7 +62,7 @@ public class CameraManager : MonoBehaviour
             if (hit.collider.name == "Desk4"){ PuzzleManager.Instance.OnMask(); currentCamera = -4; }
             if (hit.collider.name == "Reset")
             {
-                PuzzleManager.Instance.ResetButton();
+                CutChangeManager.Instance.ResetPlayCut();
             }
             if (hit.collider.name == "Paper")
             {

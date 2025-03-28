@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Ingame script_peanut_0: -8827942039920777591
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

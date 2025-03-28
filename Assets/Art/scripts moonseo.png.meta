@@ -172,7 +172,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      scripts moonseo_0: 3769588871174036830
+      scripts moonseo_1: 8657815926513075124
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
