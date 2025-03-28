@@ -329,7 +329,7 @@ public class WiringPuzzleManager : MonoBehaviour
         }
 
         Debug.Log("Puzzle completed! 땅콩 Set Common 상태.");
-        CameraManager.Instance.SwitchToCamera(CameraMonitor.Office); CameraManager.Instance.currentCamera = 0;
+        CutChangeManager.Instance.ToOfficePlayCut();
         MonsterManager.Instance.SetCommon(1);
 
         // Trigger the completion event

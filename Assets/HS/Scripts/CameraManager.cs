@@ -41,34 +41,25 @@ public class CameraManager : MonoBehaviour
     void Update()
     {
         CameraMapClick();
+        CameraMapKeyBoard();
     }
     private void CameraMapClick() {
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit) && Input.GetKeyDown(KeyCode.Mouse0) && !MaskPuzzle.isMaskOn)
         {
-            
             //Debug.Log(hit.collider.name);
-            if (hit.collider.name == "001") { SwitchToCamera(CameraMonitor.Cam1);
-                
-                currentCamera = 1;
-            }
+            if (hit.collider.name == "001") { SwitchToCamera(CameraMonitor.Cam1); currentCamera = 1; }
             if (hit.collider.name == "002") { SwitchToCamera(CameraMonitor.Cam2); currentCamera = 2;}
             if (hit.collider.name == "003") { SwitchToCamera(CameraMonitor.Cam3); currentCamera = 3;}
             if (hit.collider.name == "004") { SwitchToCamera(CameraMonitor.Cam4); currentCamera = 4;}
             if (hit.collider.name == "005") { SwitchToCamera(CameraMonitor.Cam5); currentCamera = 5;}
-            if (hit.collider.name == "006") { SwitchToCamera(CameraMonitor.Cam6);
-                currentCamera = 6;
-            }
+            if (hit.collider.name == "006") { SwitchToCamera(CameraMonitor.Cam6); currentCamera = 6; }
             if (hit.collider.name == "ToOffice") { SwitchToCamera(CameraMonitor.Office); currentCamera = 0;}
-            if (hit.collider.name == "Cctv") { SwitchToCamera(CameraMonitor.Cam1); currentCamera = -1;}
-            if (hit.collider.name == "Desk1") { SwitchToCamera(CameraMonitor.Puzzle1); } //거울
-            if (hit.collider.name == "Desk2") { SwitchToCamera(CameraMonitor.Puzzle2); } //라디오
-            if (hit.collider.name == "Desk3") { SwitchToCamera(CameraMonitor.Puzzle3); } //전선
-            if (hit.collider.name == "Desk4")
-            {
-                PuzzleManager.Instance.OnMask();
-            }
-
+            if (hit.collider.name == "Cctv") { SwitchToCamera(CameraMonitor.Cam1); currentCamera = 1;} // Default가 1번 카메라
+            if (hit.collider.name == "Desk1") { SwitchToCamera(CameraMonitor.Puzzle1); currentCamera = -1; } //거울
+            if (hit.collider.name == "Desk2") { SwitchToCamera(CameraMonitor.Puzzle2); currentCamera = -2; } //라디오
+            if (hit.collider.name == "Desk3") { SwitchToCamera(CameraMonitor.Puzzle3); currentCamera = -3; } //전선
+            if (hit.collider.name == "Desk4"){ PuzzleManager.Instance.OnMask(); currentCamera = -4; }
             if (hit.collider.name == "Reset")
             {
                 PuzzleManager.Instance.ResetButton();
@@ -76,6 +67,42 @@ public class CameraManager : MonoBehaviour
 
         }
     }
+    
+    private void CameraMapKeyBoard()
+    {
+        if(currentCamera < 1) return;
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            SwitchToCamera(CameraMonitor.Cam1);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            SwitchToCamera(CameraMonitor.Cam2);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            SwitchToCamera(CameraMonitor.Cam3);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            SwitchToCamera(CameraMonitor.Cam4);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            SwitchToCamera(CameraMonitor.Cam5);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            SwitchToCamera(CameraMonitor.Cam6);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            SwitchToCamera(CameraMonitor.Office);
+            currentCamera = 0;
+        }
+    }
+    
+    
     public void SwitchToCamera(CameraMonitor cameraMonitor)
     {
 
@@ -94,17 +121,21 @@ public class CameraManager : MonoBehaviour
         if (cameraMonitor == CameraMonitor.Cam1)
         {
             RoomManager.Instance.SetCamImage(1);
+            currentCamera = 1;
         }
         if (cameraMonitor == CameraMonitor.Cam2)
         {
             RoomManager.Instance.SetCamImage(2);
+            currentCamera = 2; 
         }
         if (cameraMonitor == CameraMonitor.Cam3)
         {
             RoomManager.Instance.SetCamImage(3);
+            currentCamera = 3; 
         }
-        if (cameraMonitor == CameraMonitor.Cam4)
+        if (cameraMonitor == CameraMonitor.Cam4) // 슬렌더맨의 특수 상황인데 나중에 따로 빼는걸 추천합니다.
         {
+            currentCamera = 4; 
             RoomManager.Instance.SetCamImage(4);
             MonsterManager.Instance.slenderTimer = 0;
             if (MonsterManager.Instance.GetMonster(5).state == MonsterState.Anomalous)
@@ -118,27 +149,31 @@ public class CameraManager : MonoBehaviour
         }
         if (cameraMonitor == CameraMonitor.Cam5)
         {
+            currentCamera = 5; 
             RoomManager.Instance.SetCamImage(5);
         }
         if (cameraMonitor == CameraMonitor.Cam6)
         {
+            currentCamera = 6; 
             RoomManager.Instance.SetCamImage(6);
         }
         if(cameraMonitor == CameraMonitor.Puzzle1)
         {
+            currentCamera = -1; 
             PuzzleManager.Instance.StartAngel();
         }
         if(cameraMonitor == CameraMonitor.Puzzle2)
         {
-            
+            currentCamera = -2; 
         }
         if(cameraMonitor == CameraMonitor.Puzzle3)
         {
-            
+            currentCamera = -3; 
         }
 
         if (cameraMonitor == CameraMonitor.Office)
         {
+            currentCamera = 0;
             if (PuzzleManager.Instance.currentPuzzle == 1)
             {
                 PuzzleManager.Instance.EndAngel();

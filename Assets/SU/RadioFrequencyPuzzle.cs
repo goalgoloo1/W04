@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-using static CameraManager;
+//using static CameraManager;
 
 public class RadioFrequencyPuzzle : MonoBehaviour
 {
@@ -41,18 +41,20 @@ public class RadioFrequencyPuzzle : MonoBehaviour
                 puzzleSolved = true;
                 statusText.text = "Puzzle Solved!";
                 Debug.Log("Puzzle Solved! Balerina set common state");
-                CameraManager.Instance.SwitchToCamera(CameraMonitor.Office); CameraManager.Instance.currentCamera = 0;
+                CutChangeManager.Instance.ToOfficePlayCut();
                 MonsterManager.Instance.SetCommon(7);
                 StartCoroutine(ResetAfterDelay()); // Start the reset process
             }
             else
             {
                 float remain = stayTime - currentStayTime;
+                statusText.color = Color.green;
                 statusText.text = $"Hold steady... ({remain:F1}s)";
             }
         }
         else
         {
+            statusText.color = Color.black;
             currentStayTime = 0f;
             statusText.text = "Adjust the radio frequency to find the signal.";
         }
@@ -89,6 +91,9 @@ public class RadioFrequencyPuzzle : MonoBehaviour
         ResetPuzzle(); // Then reset the puzzle
     }
 
+    
+    
+    
     void CreateUI()
     {
         GameObject radioCanvasObj = GameObject.Find("RadioCanvas");
