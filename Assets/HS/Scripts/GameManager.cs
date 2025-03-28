@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     private Coroutine nutsAnomalyCoroutine = null;
     private Coroutine maskAnomalyCoroutine = null;
     private Coroutine angelAnomalyCoroutine = null;
+
     private Coroutine ballerinaAnomalyCoroutine = null;
     
     // Track if Update has already processed audio this frame
