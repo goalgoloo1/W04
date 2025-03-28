@@ -40,5 +40,8 @@ public class FadingWarning : MonoBehaviour
         FadeIn(1f);
         yield return new WaitForSeconds(3f);
         FadeOut(0.3f);
+        yield return new WaitForSeconds(1f);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("StartScene");
+
     }
 }

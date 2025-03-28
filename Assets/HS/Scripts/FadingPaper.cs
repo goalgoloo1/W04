@@ -14,7 +14,7 @@ public class FadingPaper : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            StartCoroutine(FadeOutPaper());
+            StartCoroutine(FadeOutAndLoadScene());
         }
     }
     public void FadeIn(float duration)
@@ -41,9 +41,11 @@ public class FadingPaper : MonoBehaviour
         }
         m_fadeTween = canvasGroup.DOFade(endValue, duration).OnComplete(onEnd);
     }
-    IEnumerator FadeOutPaper()
+    IEnumerator FadeOutAndLoadScene()
     {
         FadeOut(0.3f);
         yield return new WaitForSeconds(1f);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Main");
+
     }
 }
