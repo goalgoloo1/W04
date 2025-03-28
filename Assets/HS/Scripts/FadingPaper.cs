@@ -8,7 +8,14 @@ public class FadingPaper : MonoBehaviour
     private Tween m_fadeTween;
     void Start()
     {
-        StartCoroutine(FadePaper());
+        FadeIn(1f);
+    }
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            StartCoroutine(FadeOutPaper());
+        }
     }
     public void FadeIn(float duration)
     {
@@ -34,10 +41,9 @@ public class FadingPaper : MonoBehaviour
         }
         m_fadeTween = canvasGroup.DOFade(endValue, duration).OnComplete(onEnd);
     }
-    IEnumerator FadePaper()
+    IEnumerator FadeOutPaper()
     {
-        FadeIn(1f);
-        yield return new WaitForSeconds(3f);
         FadeOut(0.3f);
+        yield return new WaitForSeconds(1f);
     }
 }
