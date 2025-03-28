@@ -25,6 +25,7 @@ public class DeskLight : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     
     public void OnPointerEnter(PointerEventData eventData)
     {
+        if(MaskPuzzle.isPlaying || MaskPuzzle.isMaskOn) return;
         spotlight.color = Color.white;
     }
     

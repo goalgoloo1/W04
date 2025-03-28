@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -6,17 +7,28 @@ public class MirrorRotate : MonoBehaviour
     //Detects where the mouse is
     private Ray ray;
     private RaycastHit hit;
+    public bool isRandomStart = true;
+    [SerializeField]
+    private float oriRotationZ;
 
 
     private void Start()
     {
         RotateRandom();
         transform.GetComponentInParent<AngelLaser>().StartGameAction += RotateRandom;
+        oriRotationZ = transform.localEulerAngles.z;
     }
+
     
+
     private void RotateRandom()
     {
-        transform.Rotate(0, 0, Random.Range(0, 8) * 45);
+        if(isRandomStart)
+            transform.Rotate(0, 0, Random.Range(0, 8) * 45);
+        else
+        {
+            transform.rotation = Quaternion.Euler(0, 0, oriRotationZ);
+        }
     }
 
     private void Update()

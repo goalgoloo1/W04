@@ -16,9 +16,7 @@ public class CameraManager : MonoBehaviour
         Puzzle1,
         Puzzle2,
         Puzzle3,
-        Puzzle4,
-        Puzzle5,
-        Puzzle6,
+        
     }
 
     [SerializeField] private CinemachineCamera[] cameras;
@@ -44,8 +42,9 @@ public class CameraManager : MonoBehaviour
         CameraMapKeyBoard();
     }
     private void CameraMapClick() {
+        if(PaperController.Instance.isPaper) return;
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit) && Input.GetKeyDown(KeyCode.Mouse0) && !MaskPuzzle.isMaskOn)
+        if (Physics.Raycast(ray, out hit) && Input.GetKeyDown(KeyCode.Mouse0) && !MaskPuzzle.isMaskOn && MaskPuzzle.isPlaying == false)
         {
             //Debug.Log(hit.collider.name);
             if (hit.collider.name == "001") { SwitchToCamera(CameraMonitor.Cam1); currentCamera = 1; }
@@ -64,7 +63,10 @@ public class CameraManager : MonoBehaviour
             {
                 PuzzleManager.Instance.ResetButton();
             }
-
+            if (hit.collider.name == "Paper")
+            {
+                PaperController.Instance.OnPaper();
+            }
         }
     }
     
@@ -95,7 +97,7 @@ public class CameraManager : MonoBehaviour
         {
             SwitchToCamera(CameraMonitor.Cam6);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha0))
+        if (Input.GetKeyDown(KeyCode.Alpha0) || Input.GetKeyDown(KeyCode.Escape))
         {
             SwitchToCamera(CameraMonitor.Office);
             currentCamera = 0;
