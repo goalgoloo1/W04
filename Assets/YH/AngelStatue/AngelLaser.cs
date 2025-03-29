@@ -42,6 +42,7 @@ public class AngelLaser : MonoBehaviour
     {
         StartGameAction?.Invoke();
         isClear = false;
+        maxReflections = 50;
     }
 
     private void Update()
@@ -50,8 +51,14 @@ public class AngelLaser : MonoBehaviour
             DrawLaser();
     }
 
+    
+    public void ResetLine()
+    {
+        lineRenderer.positionCount = 1;
+    }
     private void DrawLaser()
     {
+        if(isClear) return;
         List<Vector3> points = new List<Vector3>();
 
         // 2D 기준 방향 설정
@@ -91,13 +98,12 @@ public class AngelLaser : MonoBehaviour
                 // 목표 도달 체크
                 if (hit.collider.CompareTag("Goal"))
                 {
+                    isClear = true;
+                    ResetLine();
                     print("Puzzle completed! 석상 Set Common 상태.");
                     CutChangeManager.Instance.ToOfficePlayCut();
                     MonsterManager.Instance.SetCommon(4);
-
-                    isClear = true;
-                    
-                    break;
+                    return;
                 }
             }
             else
