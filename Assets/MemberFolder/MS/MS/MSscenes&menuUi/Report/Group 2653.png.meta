@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 29a97803bc11cc840acc1dcfbd1bee30
+guid: c77677b328b81894995018f9c8df6b05
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4536506576277764218
-    second: Group 2655_0
+      213: 4447107154853156512
+    second: Group 2653_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,11 +96,24 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Group 2655_0
+      name: Group 2653_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6878db7ed471b01c0800000000000000
-      internalID: -4536506576277764218
+      spriteID: 0a6de13456c47bd30800000000000000
+      internalID: 4447107154853156512
       vertices: []
       indices: 
       edges: []
@@ -135,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Group 2655_0: -4536506576277764218
+      Group 2653_0: 4447107154853156512
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

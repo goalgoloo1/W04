@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 83ce6ee2058f9d044ab24d8b79c201c4
+guid: dad5d04a86b959649a983e1bbd1e3747
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8599021166544708348
-    second: Group 2652_0
+      213: -4683701105964393569
+    second: newspaper (1)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,17 +96,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Group 2652_0
+      name: newspaper (1)_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1288
-        height: 1761
+        width: 1252
+        height: 1251
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 40d99000fc32aa880800000000000000
-      internalID: -8599021166544708348
+      spriteID: f9b53e0d8a6200fb0800000000000000
+      internalID: -4683701105964393569
       vertices: []
       indices: 
       edges: []
@@ -135,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Group 2652_0: -8599021166544708348
+      newspaper (1)_0: -4683701105964393569
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

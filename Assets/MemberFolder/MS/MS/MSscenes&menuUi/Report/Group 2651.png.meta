@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: fb6854db3a786f44a9f680b5bebdbdc7
+guid: a9fb75b3fe458b64bbc0996365e71634
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1108280531759316892
-    second: angleTITLE2_0
+      213: 973755171411141471
+    second: Group 2651_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,17 +96,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: angleTITLE2_0
+      name: Group 2651_0
       rect:
         serializedVersion: 2
-        x: 25
+        x: 0
         y: 0
-        width: 688
-        height: 951
+        width: 1289
+        height: 1761
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c9fbefe8547616f00800000000000000
-      internalID: 1108280531759316892
+      spriteID: f5329225b29738d00800000000000000
+      internalID: 973755171411141471
       vertices: []
       indices: 
       edges: []
@@ -135,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      angleTITLE2_0: 1108280531759316892
+      Group 2651_0: 973755171411141471
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
