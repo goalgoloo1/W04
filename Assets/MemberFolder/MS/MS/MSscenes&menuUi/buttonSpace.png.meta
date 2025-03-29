@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: c0246b95097325246b922c2eeb2b5b9b
+guid: 559388bd1a3a8af42985aa5617de0b88
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4017763068920673455
-    second: ballerinaDie__0
+      213: -6704085194408723780
+    second: buttonSpace_0
+  - first:
+      213: -2846167348509748531
+    second: buttonSpace_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,27 +99,62 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ballerinaDie__0
+      name: buttonSpace_0
       rect:
         serializedVersion: 2
-        x: 254
+        x: 0
         y: 0
-        width: 1028
-        height: 992
+        width: 350
+        height: 106
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fa433b26936f1c730800000000000000
-      internalID: 4017763068920673455
+      spriteID: cbaff43190e46f2a0800000000000000
+      internalID: -6704085194408723780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buttonSpace_1
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 0
+        width: 176
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc2d2cc40e16088d0800000000000000
+      internalID: -2846167348509748531
       vertices: []
       indices: 
       edges: []
@@ -125,7 +163,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: b916e5a6eeee6e04389a9623ab8619bd
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +173,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ballerinaDie__0: 4017763068920673455
+      buttonSpace_0: -6704085194408723780
+      buttonSpace_1: -2846167348509748531
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
