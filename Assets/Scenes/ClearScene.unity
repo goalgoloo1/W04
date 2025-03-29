@@ -438,8 +438,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPanel: {fileID: 0}
   reportPanel: {fileID: 0}
-  exitPanel: {fileID: 0}
   backPanel: {fileID: 0}
+  settingPanel: {fileID: 0}
 --- !u!1 &851335912
 GameObject:
   m_ObjectHideFlags: 0
@@ -843,7 +843,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 713759572}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: menuScene
+        m_MethodName: MenuScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

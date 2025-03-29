@@ -43,7 +43,7 @@ public class UIManager : MonoBehaviour
         // {
         //     AudioManager.instance.StopMusic();
         // }
-        SceneManager.LoadScene("Main"); // Ensure "Main" is the exact name of your game scene
+        SceneManager.LoadScene("OpeningScene"); // Ensure "Main" is the exact name of your game scene
     }
 
     public void MenuScene()
