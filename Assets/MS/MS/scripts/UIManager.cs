@@ -4,7 +4,8 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
-    [SerializeField] GameObject startPanel, reportPanel, exitPanel, backPanel;
+
+    [SerializeField] GameObject startPanel, reportPanel, backPanel, settingPanel;
 
     void Awake()
     {
@@ -12,36 +13,51 @@ public class UIManager : MonoBehaviour
         {
             instance = this;
         }
-    }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
+        else if (instance != this) // Ensure we destroy duplicates
+        {
+            Destroy(gameObject);
+        }
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ReportScene()
     {
-        
+        reportPanel?.SetActive(true); // Use null-conditional operator for safety
+        settingPanel?.SetActive(false);
+        startPanel?.SetActive(false);
+        backPanel?.SetActive(true); // Show back button?
     }
-    public void reportScene()
-    {
-        reportPanel.SetActive(true);
-    }
+
     public void BackMenuScene()
     {
-        reportPanel.SetActive(false);
+        reportPanel?.SetActive(false);
+        settingPanel?.SetActive(false);
+        startPanel?.SetActive(true);
+        backPanel?.SetActive(false); // Hide back button?
     }
-    public void startGameScene()
+
+    public void StartGameScene()
     {
-        SceneManager.LoadScene("Main");
+        // If you want explicit stop *immediately*:
+        // if (AudioManager.instance != null)
+        // {
+        //     AudioManager.instance.StopMusic();
+        // }
+        SceneManager.LoadScene("Main"); // Ensure "Main" is the exact name of your game scene
     }
-    public void menuScene()
+
+    public void MenuScene()
     {
-        SceneManager.LoadScene("StartScene");
+        // Play music *after* loading the scene (AudioManager handles this now via OnSceneLoaded)
+        SceneManager.LoadScene("StartScene"); // Ensure "StartScene" is the exact name
     }
-    public void ExitGame()
+
+    public void SettingScene()
     {
-        Application.Quit();
+        settingPanel?.SetActive(true);
+        reportPanel?.SetActive(false);
+        // Potentially hide startPanel as well?
+        startPanel?.SetActive(false);
+        backPanel?.SetActive(true); // Show back button?
     }
 }

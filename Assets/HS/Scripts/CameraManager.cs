@@ -4,6 +4,7 @@ using Unity.Cinemachine;
 public class CameraManager : MonoBehaviour
 {
     public static CameraManager Instance;
+    public bool isClick = true;
     public enum CameraMonitor
     {
         Office,
@@ -16,9 +17,7 @@ public class CameraManager : MonoBehaviour
         Puzzle1,
         Puzzle2,
         Puzzle3,
-        Puzzle4,
-        Puzzle5,
-        Puzzle6,
+        
     }
 
     [SerializeField] private CinemachineCamera[] cameras;
@@ -44,8 +43,9 @@ public class CameraManager : MonoBehaviour
         CameraMapKeyBoard();
     }
     private void CameraMapClick() {
+        if(PaperController.Instance.isPaper || !isClick) return;
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit) && Input.GetKeyDown(KeyCode.Mouse0) && !MaskPuzzle.isMaskOn)
+        if (Physics.Raycast(ray, out hit) && Input.GetKeyDown(KeyCode.Mouse0) && !MaskPuzzle.isMaskOn && MaskPuzzle.isPlaying == false)
         {
             //Debug.Log(hit.collider.name);
             if (hit.collider.name == "001") { SwitchToCamera(CameraMonitor.Cam1); currentCamera = 1; }
@@ -62,9 +62,12 @@ public class CameraManager : MonoBehaviour
             if (hit.collider.name == "Desk4"){ PuzzleManager.Instance.OnMask(); currentCamera = -4; }
             if (hit.collider.name == "Reset")
             {
-                PuzzleManager.Instance.ResetButton();
+                CutChangeManager.Instance.ResetPlayCut();
             }
-
+            if (hit.collider.name == "Paper")
+            {
+                PaperController.Instance.OnPaper();
+            }
         }
     }
     
@@ -95,7 +98,7 @@ public class CameraManager : MonoBehaviour
         {
             SwitchToCamera(CameraMonitor.Cam6);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha0))
+        if (Input.GetKeyDown(KeyCode.Alpha0) || Input.GetKeyDown(KeyCode.Escape))
         {
             SwitchToCamera(CameraMonitor.Office);
             currentCamera = 0;
