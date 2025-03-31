@@ -28,6 +28,7 @@ public class RadioFrequencyPuzzle : MonoBehaviour
 
     void Update()
     {
+        if(CameraManager.Instance.currentCamera != -2) return;
         if (puzzleSolved || frequencySlider == null) return;
 
         float currentFreq = frequencySlider.value;

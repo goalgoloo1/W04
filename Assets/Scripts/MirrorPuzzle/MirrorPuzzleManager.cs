@@ -65,6 +65,7 @@ public class MirrorPuzzleManager : MonoBehaviour
     public void ClearPuzzle()
     {
         clearImage.SetActive(true);
+        MonsterManager.Instance.SetCommon(4);
         CutChangeManager.Instance.PlayCutCoroutine();
     }
     
