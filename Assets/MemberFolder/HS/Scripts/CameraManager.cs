@@ -62,7 +62,7 @@ public class CameraManager : MonoBehaviour
             if (hit.collider.name == "Desk4"){ PuzzleManager.Instance.OnMask(); currentCamera = -4; }
             if (hit.collider.name == "Reset")
             {
-                CutChangeManager.Instance.ResetPlayCut();
+                ComOffManager.Instance.PlayCutCoroutine();
             }
             if (hit.collider.name == "Paper")
             {
@@ -163,7 +163,7 @@ public class CameraManager : MonoBehaviour
         if(cameraMonitor == CameraMonitor.Puzzle1)
         {
             currentCamera = -1; 
-            PuzzleManager.Instance.StartAngel();
+            PuzzleManager.Instance.StartMirror();
         }
         if(cameraMonitor == CameraMonitor.Puzzle2)
         {
@@ -177,10 +177,6 @@ public class CameraManager : MonoBehaviour
         if (cameraMonitor == CameraMonitor.Office)
         {
             currentCamera = 0;
-            if (PuzzleManager.Instance.currentPuzzle == 1)
-            {
-                PuzzleManager.Instance.EndAngel();
-            }
         }
         
     }

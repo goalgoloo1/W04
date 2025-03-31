@@ -101,7 +101,7 @@ public class AngelLaser : MonoBehaviour
                     isClear = true;
                     ResetLine();
                     print("Puzzle completed! 석상 Set Common 상태.");
-                    CutChangeManager.Instance.ToOfficePlayCut();
+                    //CutChangeManager.Instance.ToOfficePlayCut();
                     MonsterManager.Instance.SetCommon(4);
                     return;
                 }

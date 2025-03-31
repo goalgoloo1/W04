@@ -329,7 +329,7 @@ public class WiringPuzzleManager : MonoBehaviour
         }
 
         Debug.Log("Puzzle completed! 땅콩 Set Common 상태.");
-        CutChangeManager.Instance.ToOfficePlayCut();
+        CutChangeManager.Instance.PlayCutCoroutine();
         MonsterManager.Instance.SetCommon(1);
 
         // Trigger the completion event

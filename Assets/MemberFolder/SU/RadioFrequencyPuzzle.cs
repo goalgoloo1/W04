@@ -41,7 +41,7 @@ public class RadioFrequencyPuzzle : MonoBehaviour
                 puzzleSolved = true;
                 statusText.text = "Puzzle Solved!";
                 Debug.Log("Puzzle Solved! Balerina set common state");
-                CutChangeManager.Instance.ToOfficePlayCut();
+                CutChangeManager.Instance.PlayCutCoroutine();
                 MonsterManager.Instance.SetCommon(7);
                 StartCoroutine(ResetAfterDelay()); // Start the reset process
             }

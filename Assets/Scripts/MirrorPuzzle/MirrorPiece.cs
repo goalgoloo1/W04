@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class MirrorPiece : MonoBehaviour
 {
@@ -35,6 +36,14 @@ public class MirrorPiece : MonoBehaviour
         isDragging = false;
     }
 
-
+    public void Reset()
+    {
+        isCompleted = false;
+        GetComponent<Collider2D>().enabled = true;
+        float r = Random.Range(-4f, 4f);
+        r = r < 0 ? r-4f : r+4f;
+        transform.localPosition = r * Vector3.right + Random.Range(-4f, 4f) * Vector3.up;
+        Debug.Log(gameObject.name + " " + transform.position);
+    }
     
 }

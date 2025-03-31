@@ -4,7 +4,7 @@ using UnityEngine;
 public class PuzzleManager : MonoBehaviour
 {
     public static PuzzleManager Instance;
-    public AngelGameController angelGameController;
+    public MirrorPuzzleManager mpm;
     public MaskPuzzle maskPuzzle;
     public int currentPuzzle = 0;
     
@@ -16,22 +16,18 @@ public class PuzzleManager : MonoBehaviour
 
     private void Start()
     {
-        angelGameController = GetComponentInChildren<AngelGameController>();
+        mpm = MirrorPuzzleManager.Instance;
         maskPuzzle = GetComponentInChildren<MaskPuzzle>();
     }
 
 
-    public void StartAngel()
+    public void StartMirror()
     {
-        angelGameController.StartGame();
+        currentPuzzle = 0;
+        mpm.ResetPuzzle();
         currentPuzzle = 1;
     }
-
-    public void EndAngel()
-    {
-        angelGameController.OffGame();
-        currentPuzzle = 0;
-    }
+    
 
     public void OnMask()
     {

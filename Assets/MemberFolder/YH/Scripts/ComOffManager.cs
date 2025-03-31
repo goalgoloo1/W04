@@ -1,10 +1,10 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.Playables;
+using System.Collections;
 
-public class CutChangeManager : MonoBehaviour
+public class ComOffManager : MonoBehaviour
 {
-    public static CutChangeManager Instance;
+    public static ComOffManager Instance;
     private PlayableDirector pd;
     
     private void Awake()
@@ -26,20 +26,20 @@ public class CutChangeManager : MonoBehaviour
         pd.Play();
     }
     
-
+    
     public void PlayCutCoroutine()
     {
-        StopCoroutine(ToOfficeCoroutine());
-        StartCoroutine(ToOfficeCoroutine());
+        StopCoroutine(ResetCoroutine());
+        StartCoroutine(ResetCoroutine());
     }
     
-    public IEnumerator ToOfficeCoroutine()
+    public IEnumerator ResetCoroutine()
     {
-        yield return new WaitForSeconds(0.3f);
+        CameraManager.Instance.isClick = false;
         PlayCut();
+        yield return new WaitForSeconds(0.4f);
+        PuzzleManager.Instance.ResetButton();
         yield return new WaitForSeconds(1.0f);
-        CameraManager.Instance.SwitchToCamera(CameraManager.CameraMonitor.Office);
+        CameraManager.Instance.isClick = true;
     }
-    
-
 }
