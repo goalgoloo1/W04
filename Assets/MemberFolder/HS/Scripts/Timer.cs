@@ -42,28 +42,9 @@ public class Timer : MonoBehaviour
     {
         if (m_hours == 6)
         {
-            SceneManager.LoadScene("ClearScene");
-            Debug.Log("Stage Clear! , Clear.Scene 로드");
+            SceneManager.LoadScene("EndingScene");
+            Debug.Log("Stage Clear! ,EndingScene 로드");
         }
     }
-
-    //To do: 메인 씬에 넣고 아노말리 일 때 시계 멈추는지 확인
-
-    //void CheckMonsterState()
-    //{
-    //    //Debug.Log("아노말리 때 시간 멈추는 지 확인 " + m_timePaused);
-
-    //    for (int i = 1; i < 8; i++)
-    //    {
-    //        //Debug.Log(MonsterManager.Instance.GetMonster(i).state);
-    //        if (i == 2) continue; // Skip monster 2, 자판기 괴물 피쳐 삭제.
-    //        if (MonsterManager.Instance.GetMonster(i).state == MonsterState.Anomalous)
-    //        {
-    //            m_isTimePaused = true;
-    //            return;
-    //        }
-    //    }
-    //    m_isTimePaused = false;
-    //}
 }
 
