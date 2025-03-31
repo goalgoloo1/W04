@@ -15,8 +15,8 @@ MonoBehaviour:
   monsterName: SCP_Vending
   num: 2
   state: 0
-  timeToAnomalous: 5
-  timeToCritical: 5
+  timeToAnomalous: 100
+  timeToCritical: 100
   commonSprite: {fileID: -7841040197371656885, guid: b3ad7c50299a4ae40a6e1528593f594d, type: 3}
   anomalousSprite: {fileID: -7841040197371656885, guid: b3ad7c50299a4ae40a6e1528593f594d, type: 3}
   criticalSprite: {fileID: -7841040197371656885, guid: b3ad7c50299a4ae40a6e1528593f594d, type: 3}
