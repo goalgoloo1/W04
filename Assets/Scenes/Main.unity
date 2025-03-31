@@ -7197,6 +7197,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1894603314}
   - component: {fileID: 1894603315}
+  - component: {fileID: 1894603316}
   m_Layer: 0
   m_Name: BallerinaNormal
   m_TagString: Untagged
@@ -7231,7 +7232,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: d095db261490f0345a987409e150b669, type: 2}
   m_audioClip: {fileID: 8300000, guid: 0fd28505636776d43b216c8d8a3535d7, type: 3}
   m_Resource: {fileID: 8300000, guid: 0fd28505636776d43b216c8d8a3535d7, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
@@ -7316,6 +7317,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1894603316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894603313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c63ee74ef2a8c3f439574a28f1eca092, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballerinaAudioSource: {fileID: 1894603315}
 --- !u!1 &1908898793
 GameObject:
   m_ObjectHideFlags: 0

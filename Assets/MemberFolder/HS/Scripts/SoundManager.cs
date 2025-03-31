@@ -51,6 +51,12 @@ public class SoundManager : MonoBehaviour
     {
         audioSource.Play();
     }
+
+    // turn off the audioSource
+    public void StopAudio(AudioSource audioSource)
+    {
+        audioSource.Stop();
+    }
     public void StopAllAudio()
     {
         if (nutsAnomalyAudio != null && nutsAnomalyAudio.isPlaying) nutsAnomalyAudio.Stop();
