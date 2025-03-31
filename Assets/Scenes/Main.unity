@@ -5920,7 +5920,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 09d6e8187665b25498e67d78fcab468e, type: 3}
   m_Resource: {fileID: 8300000, guid: 09d6e8187665b25498e67d78fcab468e, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -9151,7 +9151,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2773391328707827502, guid: 5a862f93b2411b04ea902cf22f1e63da, type: 3}
       propertyPath: m_Volume
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2773391328707827502, guid: 5a862f93b2411b04ea902cf22f1e63da, type: 3}
       propertyPath: MinDistance
@@ -9471,7 +9471,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5249033583616805121, guid: 1036de73b4f33c3489d8b01875df8f2c, type: 3}
       propertyPath: m_Volume
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5249033583616805121, guid: 1036de73b4f33c3489d8b01875df8f2c, type: 3}
       propertyPath: MinDistance
@@ -9581,7 +9581,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6184970295156527139, guid: 113962d9200e48e48b2cc719a26e898d, type: 3}
       propertyPath: m_Volume
-      value: 0.5
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 6184970295156527139, guid: 113962d9200e48e48b2cc719a26e898d, type: 3}
       propertyPath: rolloffMode
@@ -9697,7 +9697,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5060622231845602282, guid: a9aa82353e162d647b354455ce1a2f67, type: 3}
       propertyPath: m_Volume
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5060622231845602282, guid: a9aa82353e162d647b354455ce1a2f67, type: 3}
       propertyPath: m_Resource
@@ -10001,6 +10001,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4240611829439531974, guid: 6630296e6c413784f81e7d461f6317f1, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4240611829439531974, guid: 6630296e6c413784f81e7d461f6317f1, type: 3}
       propertyPath: rolloffMode
       value: 0
       objectReference: {fileID: 0}
@@ -10191,7 +10195,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 86d9a6bfa015ece4e8aef11aa745cee4, type: 3}
   m_Resource: {fileID: 8300000, guid: 86d9a6bfa015ece4e8aef11aa745cee4, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.35
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -10386,7 +10390,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1507932373791713329, guid: 057e6b706d1f3cb4b962a6612d34afc5, type: 3}
       propertyPath: m_Volume
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1507932373791713329, guid: 057e6b706d1f3cb4b962a6612d34afc5, type: 3}
       propertyPath: MinDistance
