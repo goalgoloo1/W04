@@ -29,7 +29,7 @@ public class BatteryManager : MonoBehaviour
     
     public void UseBattery(float amount)
     {
-        battery -= amount;
+        battery -= amount/2;
         if (battery < 0)
         {
             battery = 0;
@@ -40,7 +40,7 @@ public class BatteryManager : MonoBehaviour
     
     public void ChargeBattery(float amount)
     {
-        battery += amount;
+        battery += amount*2;
         if (battery > maxBattery)
         {
             battery = maxBattery;

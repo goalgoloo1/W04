@@ -3,6 +3,7 @@ using Unity.Cinemachine;
 
 public class CameraManager : MonoBehaviour
 {
+    
     public static CameraManager Instance;
     public bool isClick = true;
     public enum CameraMonitor
@@ -134,6 +135,10 @@ public class CameraManager : MonoBehaviour
         if (cameraMonitor == CameraMonitor.Cam2)
         {
             if(BatteryManager.instance.batteryPercentage == 0) return;
+            if (MonsterManager.Instance.GetMonster(7).state == MonsterState.Common)
+            {
+                SoundManager.Instance.PlayAudio(SoundManager.Instance.ballerinaAudioSource);
+            }
             lastCamera = 2;
             RoomManager.Instance.SetCamImage(2);
             BatteryManager.instance.UseBattery(20);

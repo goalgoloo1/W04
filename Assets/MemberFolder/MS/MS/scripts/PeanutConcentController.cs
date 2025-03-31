@@ -110,6 +110,7 @@ public class PeanutConcentController : MonoBehaviour
         if (collision.gameObject == targetConcent)
         {
             Debug.Log("connect");
+            MonsterManager.Instance.SetCommon(1);
             isConnect = true;
             transform.position = new Vector2(transform.position.x + 0.95f, collision.transform.position.y);
             StartCoroutine(LerpLightRadius(27.66f, 0.5f));

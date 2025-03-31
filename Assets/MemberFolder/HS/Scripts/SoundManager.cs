@@ -19,7 +19,7 @@ public class SoundManager : MonoBehaviour
 
     //효과음
     public AudioSource mouseClickAudio;
-
+    public AudioSource ballerinaAudioSource;
     //한성 : 몬스터 사운드
     public AudioSource nutsAnomalyAudio;
     public AudioSource nutsJumpscareAudio;

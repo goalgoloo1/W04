@@ -29,11 +29,12 @@ public class MonsterManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        SetMonsterData();
     }
 
     private void Start()
     {
-        SetMonsterData();
+        //SetMonsterData();
         isStop = false;
     }
 
