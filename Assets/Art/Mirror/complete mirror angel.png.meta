@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      complete mirror angel_0: -1953121708391844679
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

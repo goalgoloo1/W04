@@ -37,7 +37,7 @@ public class CutChangeManager : MonoBehaviour
     {
         yield return new WaitForSeconds(0.3f);
         PlayCut();
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.2f);
         CameraManager.Instance.SwitchToCamera(CameraManager.CameraMonitor.Office);
     }
     
