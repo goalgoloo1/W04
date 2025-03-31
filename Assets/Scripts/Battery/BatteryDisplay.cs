@@ -11,9 +11,15 @@ public class BatteryDisplay : MonoBehaviour
         batteryText = GetComponent<TextMeshPro>();
     }
 
+    private void OnEnable()
+    {
+        SetText();
+    }
+
     private void Start()
     {
         BatteryManager.instance.BatteryChanged += SetText;
+        SetText();
     }
     
     private void SetText()
